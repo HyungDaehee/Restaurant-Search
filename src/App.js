@@ -1,13 +1,14 @@
-import { NaverAPI } from './api/NaverAPI';
 import './App.scss';
-import NaverMap from './NaverMap/NaverMap';
+import KakaoMap from './KakaoMap/KakaoMap';
 import { Search } from './Sidebar/Search';
+
+
 
 function App() {
   return (
     <div className='Main-container'>
       <Search />
-      <NaverMap />
+      <KakaoMap />
     </div>
   );
 }
