@@ -1,26 +1,31 @@
 import React, { useEffect, useRef } from 'react';
-import './KakaoMap.scss'; // CSS 파일을 추가합니다
+import './KakaoMap.scss';
+import { CurrentLocation } from '../Sidebar/CurrentLoaction';
 
-const KakaoMap = () => {
+const KakaoMap = ({ location}) => {
     const mapRef = useRef(null);
+    const { kakao } = window;
 
     useEffect(() => {
-        const { kakao } = window;
-        if (kakao && mapRef.current) {
+        console.log('Current Location:', location); 
+        if (mapRef.current && kakao) {
             const map = new kakao.maps.Map(mapRef.current, {
-                center: new kakao.maps.LatLng(37.654527, 127.060551), // 지도의 중심 좌표
-                zoom: 17, // 지도의 줌 레벨
+                center: new kakao.maps.LatLng(37.654527, 127.060551),                level: 3,
             });
-
-            new kakao.maps.Marker({
-                position: new kakao.maps.LatLng(37.654527, 127.060551),
-                map: map,
-            });
+    
+            if (location) {
+                const { lat, lon } = location;
+                map.setCenter(new kakao.maps.LatLng(lat, lon));
+    
+                const marker = new kakao.maps.Marker({
+                    map: map,
+                    position: new kakao.maps.LatLng(lat, lon),
+                });
+            }
         }
-    }, []);
-
+    }, [location, kakao]);
     return (
-    <div className='NaverMap' ref={mapRef}></div>
+        <div className='KakaoMap' ref={mapRef}></div>
     );
 };
 
