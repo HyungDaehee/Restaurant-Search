@@ -19,17 +19,15 @@ app.get('/api/search', async (req, res) => {
       },
       params: {
         query,
-        size: 50,
-        category_group_code: 'FD6'
+        category_group_code: 'FD6',
+        size: 15, 
       }
     });
 
     console.log('API 응답 데이터:', response.data);
-
     res.json(response.data);
   } catch (error) {
     console.error('API 호출 실패:', error.message);
-    console.error('에러 상세:', error); // 에러 객체를 출력
     res.status(500).send('API 호출 실패');
   }
 });

@@ -1,0 +1,13 @@
+.current {
+    color: white;
+    border: 0;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: end;
+    padding-right: 0.5rem;
+    padding-top: 3px;
+    cursor: pointer;
+    font-size: 15px;
+}
