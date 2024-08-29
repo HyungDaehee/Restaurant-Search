@@ -5,16 +5,20 @@ import { Search } from './Sidebar/Search';
 
 function App() {
   const [location, setLocation] = useState(null);
+  const [searchResults, setSearchResults] = useState([]);
 
   const handleLocationChange = (loc) => {
     setLocation(loc);
   };
 
+  const handleSearchResults = (results) => {
+    setSearchResults(results);
+  };
+
   return (
     <div className='Main-container'>
-      <Search handleLocationChange={handleLocationChange}/>
-      <KakaoMap location={location} />
-     
+      <Search handleLocationChange={handleLocationChange} onSearchResults={handleSearchResults} />
+      <KakaoMap searchResults={searchResults} />
     </div>
   );
 }

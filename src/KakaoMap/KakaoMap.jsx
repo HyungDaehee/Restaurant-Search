@@ -1,67 +1,44 @@
-<<<<<<< HEAD
 import React, { useEffect, useRef } from 'react';
 import './KakaoMap.scss';
-import { CurrentLocation } from '../Sidebar/CurrentLoaction';
 
-const KakaoMap = ({ location}) => {
+const KakaoMap = ({ searchResults }) => {
     const mapRef = useRef(null);
     const { kakao } = window;
+    const map = useRef(null); 
+    const markers = useRef([]);  
 
     useEffect(() => {
-        console.log('Current Location:', location); 
-        if (mapRef.current && kakao) {
-            const map = new kakao.maps.Map(mapRef.current, {
-                center: new kakao.maps.LatLng(37.654527, 127.060551),                level: 3,
+        if (!map.current) {
+            map.current = new kakao.maps.Map(mapRef.current, {
+                center: new kakao.maps.LatLng(37.654527, 127.060551),
+                level: 3,
             });
-    
-            if (location) {
-                const { lat, lon } = location;
-                map.setCenter(new kakao.maps.LatLng(lat, lon));
-    
+        }
+
+        
+        markers.current.forEach(marker => marker.setMap(null));
+        markers.current = [];
+
+        if (searchResults) {
+            searchResults.forEach(restaurant => {
+                const { y, x } = restaurant;
                 const marker = new kakao.maps.Marker({
-                    map: map,
-                    position: new kakao.maps.LatLng(lat, lon),
+                    position: new kakao.maps.LatLng(y, x),
+                    map: map.current,
                 });
+                markers.current.push(marker); 
+            });
+
+            if (searchResults.length > 0) {
+                const { y, x } = searchResults[0];
+                map.current.setCenter(new kakao.maps.LatLng(y, x));
             }
         }
-    }, [location, kakao]);
+    }, [searchResults, kakao]);
+
     return (
         <div className='KakaoMap' ref={mapRef}></div>
     );
 };
 
 export default KakaoMap;
-=======
-import React, { useEffect, useRef } from 'react';
-import './KakaoMap.scss';
-import { CurrentLocation } from '../Sidebar/CurrentLoaction';
-
-const KakaoMap = ({ location}) => {
-    const mapRef = useRef(null);
-    const { kakao } = window;
-
-    useEffect(() => {
-        console.log('Current Location:', location); 
-        if (mapRef.current && kakao) {
-            const map = new kakao.maps.Map(mapRef.current, {
-                center: new kakao.maps.LatLng(37.654527, 127.060551),                level: 3,
-            });
-    
-            if (location) {
-                const { lat, lon } = location;
-                map.setCenter(new kakao.maps.LatLng(lat, lon));
-    
-                const marker = new kakao.maps.Marker({
-                    map: map,
-                    position: new kakao.maps.LatLng(lat, lon),
-                });
-            }
-        }
-    }, [location, kakao]);
-    return (
-        <div className='KakaoMap' ref={mapRef}></div>
-    );
-};
-
-export default KakaoMap;
->>>>>>> 6a36482cd8deb2c2ec448fa19307072da7a6d8f3
