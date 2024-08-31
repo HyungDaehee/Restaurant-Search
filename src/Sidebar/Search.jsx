@@ -3,10 +3,9 @@ import '../Sidebar/Search.scss';
 import { CiSearch } from "react-icons/ci";
 import { KakaoAPI } from '../api/KakakoAPI.js';
 import { Modal } from './Modal.jsx';
-import { CurrentLocation } from './CurrentLoaction.jsx';
 import PageNation from './PageNation.jsx';
 
-export const Search = ({ handleLocationChange, onSearchResults }) => {
+export const Search = ({ onSearchResults }) => {
     const [keyword, setKeyword] = useState('');
     const [restaurants, setRestaurants] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -15,7 +14,7 @@ export const Search = ({ handleLocationChange, onSearchResults }) => {
     const [modalContent, setModalContent] = useState('');
 
     const [activePage, setActivePage] = useState(1);
-    const itemsCountPerPage = 5;
+    const itemsCountPerPage = 5;        
 
     const handleSearch = async () => {
         if (!keyword.trim()) return;
@@ -52,9 +51,6 @@ export const Search = ({ handleLocationChange, onSearchResults }) => {
     return (
         <div className='search-container'>
             <div className='bar-container'>
-                <div className="current">
-                    <CurrentLocation onLocationChange={handleLocationChange} />
-                </div>
                 <div className='search-bar'>
                     <input
                         type='text'
