@@ -76,10 +76,29 @@
             }
 
             .category {
-                font-size: 1rem;
+                font-size: 15px;
                 margin-left: 0.5rem;
                 color: gray;
             }
+
+            .address{
+                .address-icon{
+                    font-size: 1rem;
+                    color: #D3d3d3;
+                    padding-right: 1rem;
+                }
+            }
+            
+            .tel{
+
+                .tel-icon{
+                    font-size: 1rem;
+                    color: #D3d3d3;
+                    padding-right: 1rem;
+                }
+
+            }
+            
         }
 
 

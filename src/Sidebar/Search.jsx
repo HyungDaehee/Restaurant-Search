@@ -4,6 +4,9 @@ import { CiSearch } from "react-icons/ci";
 import { KakaoAPI } from '../api/KakakoAPI.js';
 import { Modal } from './Modal.jsx';
 import PageNation from './PageNation.jsx';
+import { FaPhone } from "react-icons/fa6";
+import { FaMapMarkerAlt } from "react-icons/fa";
+
 
 export const Search = ({ onSearchResults }) => {
     const [keyword, setKeyword] = useState('');
@@ -67,15 +70,15 @@ export const Search = ({ onSearchResults }) => {
                 {restaurants.slice((activePage - 1) * itemsCountPerPage, activePage * itemsCountPerPage).map((restaurant, index) => (
                     <div key={index} className="result-item">
                         <div className="title-category">
-                            <h4 className='title'>
+                            <h3 className='title'>
                                 <a href="#" onClick={(e) => { e.preventDefault(); openModal(restaurant.place_url); }}>
                                     {restaurant.place_name}
                                 </a>
-                            </h4>
+                            </h3>
                             <p className='category'>{restaurant.category_name.split(' > ').pop()}</p>
                         </div>
-                        <p className='address'>{restaurant.address_name}</p>
-                        <p className='tel'>{restaurant.phone}</p>
+                        <p className='address'><FaMapMarkerAlt className='address-icon' />{restaurant.road_address_name}</p>
+                        <p className='tel'><FaPhone className='tel-icon' />{restaurant.phone}</p>
                     </div>
                 ))}
                 {restaurants.length > 0 && (

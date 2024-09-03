@@ -7,6 +7,7 @@ const KakaoMap = ({ searchResults }) => {
     const map = useRef(null);
     const markers = useRef([]);
     const currentMarker = useRef(null);
+    const { kakao } = window;
 
     useEffect(() => {
         if (!map.current) {
@@ -18,18 +19,41 @@ const KakaoMap = ({ searchResults }) => {
 
         markers.current.forEach(marker => marker.setMap(null));
         markers.current = [];
+        
 
         if (searchResults && searchResults.length > 0) {
             searchResults.forEach(restaurant => {
                 const { y, x } = restaurant;
-                const marker = new window.kakao.maps.Marker({
+
+                 const marker = new window.kakao.maps.Marker({
                     position: new window.kakao.maps.LatLng(y, x),
                     map: map.current,
                 });
-                markers.current.push(marker);
-            });
 
-            // 첫 번째 검색 결과의 위치로 지도를 이동
+                const content = `
+                    <div class='CustomOverlay'>
+                        <h4>${restaurant.place_name}</h4>
+                    </div>`;
+
+                // 커스텀 오버레이 생성
+                const WindowInfo = new window.kakao.maps.InfoWindow({
+                    content: content,
+                });
+
+                const infowindow = new window.kakao.maps.InfoWindow({
+                    content: content,
+                });
+
+                kakao.maps.event.addListener(marker, 'mouseover', function () {
+                    infowindow.open(map.current, marker);
+                });
+
+                kakao.maps.event.addListener(marker, 'mouseout', function () {
+                    infowindow.close();
+                });
+                markers.current.push(marker, WindowInfo);
+            });
+            
             const { y, x } = searchResults[0];
             map.current.setCenter(new window.kakao.maps.LatLng(y, x));
         }
@@ -60,6 +84,8 @@ const KakaoMap = ({ searchResults }) => {
             console.error('Geolocation is not supported by this browser.');
         }
     };
+
+   
 
     return (
         <div className='KakaoMap' ref={mapRef}>
