@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const { BiRestaurant } = require('react-icons/bi');
 require('dotenv').config();
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(cors());
 app.get('/api/search', async (req, res) => {
     const { query } = req.query;
     const KAKAO_API_KEY = process.env.KAKAO_API_KEY;
-    const MAX_PAGE = 6;
+    const MAX_PAGE = 7;
     const itemsPerPage = 15;
     const allResults = [];
 
@@ -29,7 +30,10 @@ app.get('/api/search', async (req, res) => {
                 }
             });
 
-            const results = response.data.documents;
+            const results = response.data.documents.map(restaurant => ({
+                ...restaurant,
+                page: page,
+            }));
             allResults.push(...results); 
             if (results.length < itemsPerPage) {
                 break;

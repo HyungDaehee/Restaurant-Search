@@ -8,7 +8,7 @@ import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
 
 
-export const Search = ({ onSearchResults }) => {
+export const Search = ({  onSearchResults }) => {
     const [keyword, setKeyword] = useState('');
     const [restaurants, setRestaurants] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ export const Search = ({ onSearchResults }) => {
     const [modalContent, setModalContent] = useState('');
 
     const [activePage, setActivePage] = useState(1);
-    const itemsCountPerPage = 5;        
+    const itemsCountPerPage = 10;        
 
     const handleSearch = async () => {
         if (!keyword.trim()) return;
@@ -27,6 +27,7 @@ export const Search = ({ onSearchResults }) => {
 
         try {
             const results = await KakaoAPI(keyword);
+            console.log('검색 결과:', results);
             setRestaurants(results);
             setActivePage(1);
             onSearchResults(results); 
