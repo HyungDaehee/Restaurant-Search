@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import './KakaoMap.scss';
 import { TbCurrentLocation } from "react-icons/tb";
 
-const KakaoMap = ({ searchResults, currentPage }) => {
+const KakaoMap = ({ searchResults }) => {
     const mapRef = useRef(null);
     const map = useRef(null);
     const markers = useRef([]);
@@ -10,8 +10,8 @@ const KakaoMap = ({ searchResults, currentPage }) => {
     const { kakao } = window;
 
     useEffect(() => {
-        // 초기 맵 설정
         if (!map.current) {
+            // 처음 맵 생성
             map.current = new window.kakao.maps.Map(mapRef.current, {
                 center: new window.kakao.maps.LatLng(37.654527, 127.060551),
                 level: 4,
@@ -22,48 +22,41 @@ const KakaoMap = ({ searchResults, currentPage }) => {
         markers.current.forEach(marker => marker.setMap(null));
         markers.current = [];
 
-        const itemsCountPerPage = 10; 
-        const startIndex = (currentPage - 1) * itemsCountPerPage; 
-        const currentPageResults = searchResults.slice(startIndex, startIndex + itemsCountPerPage);
+        // 현재 페이지의 검색 결과로 마커 추가
+        if (searchResults && searchResults.length > 0) {
+            searchResults.forEach(restaurant => {
+                const { y, x } = restaurant;
 
-        if (currentPageResults && currentPageResults.length > 0) {
-            currentPageResults.forEach(restaurant => {
-                const { y, x, place_name } = restaurant;
-
-                // 마커 생성
                 const marker = new window.kakao.maps.Marker({
                     position: new window.kakao.maps.LatLng(y, x),
                     map: map.current,
                 });
 
-                const content = 
+                const content = `
                     <div class='CustomOverlay'>
-                        <h4 style="margin: 0;">${place_name}</h4>
-                    </div>;
+                        <h4>${restaurant.place_name}</h4>
+                    </div>`;
 
-                const WindowInfo = new window.kakao.maps.InfoWindow({
+                const infowindow = new window.kakao.maps.InfoWindow({
                     content: content,
                 });
 
-                // 마우스 오버 이벤트
                 kakao.maps.event.addListener(marker, 'mouseover', function () {
-                    WindowInfo.open(map.current, marker);
+                    infowindow.open(map.current, marker);
                 });
 
-                // 마우스 아웃 이벤트
                 kakao.maps.event.addListener(marker, 'mouseout', function () {
-                    WindowInfo.close();
+                    infowindow.close();
                 });
 
-                // 마커 배열에 추가
                 markers.current.push(marker);
             });
 
             // 첫 번째 결과를 지도 중심으로 설정
-            const { y, x } = currentPageResults[0];
+            const { y, x } = searchResults[0];
             map.current.setCenter(new window.kakao.maps.LatLng(y, x));
         }
-    }, [searchResults, currentPage]); // searchResults와 currentPage 변경 시 마커 업데이트
+    }, [searchResults]);  // searchResults가 변경될 때마다 실행
 
     const getCurrentLocation = () => {
         if (navigator.geolocation) {
