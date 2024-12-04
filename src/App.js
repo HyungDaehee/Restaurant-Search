@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.scss';
 import KakaoMap from './KakaoMap/KakaoMap';
 import { Search } from './SearchBar/Search';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './KakaoLogin/Login';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]); 
@@ -24,6 +26,7 @@ function App() {
   );
 
   return (
+   <>
     <div className='Main-container'>
       <Search 
         onSearchResults={handleSearchResults}
@@ -33,6 +36,12 @@ function App() {
       />
       <KakaoMap searchResults={paginatedResults} />
     </div>
+     <BrowserRouter>
+    <Routes>
+   <Route path="/Login"element={<Login/>}></Route>
+   </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 

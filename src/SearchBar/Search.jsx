@@ -6,6 +6,7 @@ import { Modal } from '../Modal/Modal.jsx';
 import PageNation from '../PageNation/PageNation.jsx';
 import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import Login from "../KakaoLogin/Login.jsx";
 
 export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageChange }) => {
     const [keyword, setKeyword] = useState('');
@@ -46,6 +47,7 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
     return (
         <div className='search-container'>
             <div className='bar-container'>
+                <Login/>
                 <div className='search-bar'>
                     <input
                         type='text'

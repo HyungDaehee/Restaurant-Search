@@ -11,8 +11,8 @@ app.use(cors());
 
 app.get('/api/search', async (req, res) => {
     const { query } = req.query;
-    const KAKAO_API_KEY = process.env.KAKAO_API_KEY;
-    const MAX_PAGE = 7;
+    const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_API_KEY;
+    const MAX_PAGE = 45;
     const itemsPerPage = 15;
     const allResults = [];
 
@@ -34,7 +34,7 @@ app.get('/api/search', async (req, res) => {
                 ...restaurant,
                 page: page,
             }));
-            allResults.push(...results); 
+            allResults.push(...results);
             if (results.length < itemsPerPage) {
                 break;
             }

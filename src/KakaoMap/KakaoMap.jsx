@@ -11,18 +11,18 @@ const KakaoMap = ({ searchResults }) => {
 
     useEffect(() => {
         if (!map.current) {
-            // 처음 맵 생성
+            // 맵 생성
             map.current = new window.kakao.maps.Map(mapRef.current, {
                 center: new window.kakao.maps.LatLng(37.654527, 127.060551),
                 level: 4,
             });
         }
 
-        // 기존 마커 제거
+        // 마커 제거
         markers.current.forEach(marker => marker.setMap(null));
         markers.current = [];
 
-        // 현재 페이지의 검색 결과로 마커 추가
+        // 현재 페이지 마커
         if (searchResults && searchResults.length > 0) {
             searchResults.forEach(restaurant => {
                 const { y, x } = restaurant;
@@ -52,11 +52,11 @@ const KakaoMap = ({ searchResults }) => {
                 markers.current.push(marker);
             });
 
-            // 첫 번째 결과를 지도 중심으로 설정
+            // 검색 결과 지도
             const { y, x } = searchResults[0];
             map.current.setCenter(new window.kakao.maps.LatLng(y, x));
         }
-    }, [searchResults]);  // searchResults가 변경될 때마다 실행
+    }, [searchResults]); 
 
     const getCurrentLocation = () => {
         if (navigator.geolocation) {
