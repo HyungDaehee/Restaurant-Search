@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './KakaoMap.scss';
 import { TbCurrentLocation } from "react-icons/tb";
+import { FiLogIn } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
 const KakaoMap = ({ searchResults }) => {
     const mapRef = useRef(null);
@@ -8,6 +10,7 @@ const KakaoMap = ({ searchResults }) => {
     const markers = useRef([]);
     const currentMarker = useRef(null);
     const { kakao } = window;
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (!map.current) {
@@ -84,12 +87,23 @@ const KakaoMap = ({ searchResults }) => {
         }
     };
 
+        const Login = () => {
+            navigate("/Login")
+        }
+
     return (
+        <>
         <div className='KakaoMap' ref={mapRef}>
             <button className='current' onClick={getCurrentLocation}>
                 <TbCurrentLocation />
             </button>
+
+            <div>
+             <button className='signin' onClick={Login}><FiLogIn /></button>
         </div>
+        </div>
+       
+        </>
     );
 };
 

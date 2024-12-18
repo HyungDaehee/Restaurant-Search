@@ -48,7 +48,6 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
     return (
         <div className='search-container'>
             <div className='bar-container'>
-                <Login/>
                 <div className='search-bar'>
                     <input
                         type='text'

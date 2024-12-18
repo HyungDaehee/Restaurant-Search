@@ -6,7 +6,7 @@ export const KakaoAPI = async (query) => {
             params: { query }
         });
         
-        return response.data; // 모든 결과 반환
+        return response.data;
     } catch (error) {
         console.error('API 호출 실패:', error);
         return [];

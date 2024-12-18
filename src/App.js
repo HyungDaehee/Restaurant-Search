@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import './App.scss';
+import { Routes, Route } from 'react-router-dom';  // BrowserRouter는 index.js에서 처리하므로 import할 필요 없음
 import KakaoMap from './KakaoMap/KakaoMap';
 import { Search } from './SearchBar/Search';
-import { Router, Routes, Route } from 'react-router-dom';
 import Login from './KakaoLogin/Login';
-import { LoginText } from './KakaoLogin/LoginText';
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -27,26 +26,27 @@ function App() {
   );
 
   return (
-    <>
-      <div className='Main-container'>
-        <Search
-          onSearchResults={handleSearchResults}
-          activePage={currentPage}
-          itemsCountPerPage={itemsPerPage}
-          onPageChange={handlePageChange}
-        />
-        <KakaoMap searchResults={paginatedResults} />
-      </div>
-      <Routes>
-        <Route path='/' element={
-          <>
-            <KakaoMap />
-            <Search />
-          </>
-        }></Route>
-        <Route path="/oauth/callback/kakao" element={<Login />}></Route>
-      </Routes>
-    </>
+    <Routes>
+      {/* 메인 페이지 */}
+      <Route
+        path="/"
+        element={
+          <div className='Main-container'>
+            <Search
+              onSearchResults={handleSearchResults}
+              activePage={currentPage}
+              itemsCountPerPage={itemsPerPage}
+              onPageChange={handlePageChange}
+            />
+            <KakaoMap searchResults={paginatedResults} />
+          </div>
+        }
+      />
+      
+      {/* 로그인 페이지 */}
+      <Route path="/Login" element={<Login />} />
+
+    </Routes>
   );
 }
 
