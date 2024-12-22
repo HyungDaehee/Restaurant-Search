@@ -52,11 +52,10 @@ app.get("/auth/Kakao", (req, res) => {
   let REDIRECT_URI = "http://localhost:3000/Login";
 
   let code = req.query.code;
-  console.log("클라이언트로부터 받은 인가 코드:", code);
+  console.log("인가 코드:", code);
 
   if (!code) {
     console.log("인가 코드가 없습니다.");
-    return res.status(400).send("인가 코드가 누락되었습니다.");
   }
 
   axios.post("https://kauth.kakao.com/oauth/token", null, {

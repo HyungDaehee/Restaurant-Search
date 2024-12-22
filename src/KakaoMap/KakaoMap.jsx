@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import './KakaoMap.scss';
 import { TbCurrentLocation } from "react-icons/tb";
-import { FiLogIn } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
+import Login from "../KakaoLogin/Login.jsx";
 
 const KakaoMap = ({ searchResults }) => {
     const mapRef = useRef(null);
@@ -87,10 +87,6 @@ const KakaoMap = ({ searchResults }) => {
         }
     };
 
-        const Login = () => {
-            navigate("/Login")
-        }
-
     return (
         <>
         <div className='KakaoMap' ref={mapRef}>
@@ -99,7 +95,7 @@ const KakaoMap = ({ searchResults }) => {
             </button>
 
             <div>
-             <button className='signin' onClick={Login}><FiLogIn /></button>
+             <div className='signin'><Login/></div>
         </div>
         </div>
        

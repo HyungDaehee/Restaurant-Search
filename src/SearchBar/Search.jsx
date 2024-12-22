@@ -6,8 +6,6 @@ import { Modal } from '../Modal/Modal.jsx';
 import PageNation from '../PageNation/PageNation.jsx';
 import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
-import Login from '../KakaoLogin/Login.jsx';
-
 
 export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageChange }) => {
     const [keyword, setKeyword] = useState('');
@@ -27,7 +25,7 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
             const results = await KakaoAPI(keyword);
             console.log('검색 결과:', results);
             setRestaurants(results);
-            onSearchResults(results); 
+            onSearchResults(results);
         } catch (err) {
             setError('검색 중 오류가 발생했습니다.');
         } finally {
@@ -86,7 +84,7 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
                     />
                 )}
             </div>
-            
+
             <Modal
                 isOpen={isModalOpen}
                 onClose={closeModal}
