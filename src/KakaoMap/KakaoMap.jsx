@@ -1,106 +1,101 @@
 import React, { useEffect, useRef } from 'react';
 import './KakaoMap.scss';
-import { TbCurrentLocation } from "react-icons/tb";
-import { useNavigate } from 'react-router-dom';
-import Login from "../KakaoLogin/Login.jsx";
+import { TbCurrentLocation } from 'react-icons/tb';
+import Login from '../KakaoLogin/Login.jsx';
 
 const KakaoMap = ({ searchResults }) => {
-    const mapRef = useRef(null);
-    const map = useRef(null);
-    const markers = useRef([]);
-    const currentMarker = useRef(null);
-    const { kakao } = window;
-    const navigate = useNavigate();
+  const mapRef = useRef(null);
+  const map = useRef(null);
+  const markers = useRef([]);
+  const currentMarker = useRef(null);
 
-    useEffect(() => {
-        if (!map.current) {
-            // 맵 생성
-            map.current = new window.kakao.maps.Map(mapRef.current, {
-                center: new window.kakao.maps.LatLng(37.654527, 127.060551),
-                level: 4,
+  useEffect(() => {
+    if (!map.current) {
+      // 맵 생성
+      map.current = new window.kakao.maps.Map(mapRef.current, {
+        center: new window.kakao.maps.LatLng(37.654527, 127.060551),
+        level: 4,
+      });
+    }
+
+    updateMarkers();
+  }, [searchResults]);
+
+  const updateMarkers = () => {
+    // 기존 마커 제거
+    markers.current.forEach(marker => marker.setMap(null));
+    markers.current = [];
+
+    // 검색 결과 마커 생성
+    if (searchResults && searchResults.length > 0) {
+      searchResults.forEach(({ y, x, place_name }) => {
+        const marker = createMarker(y, x, place_name);
+        markers.current.push(marker);
+      });
+
+      // 첫 번째 결과를 기준으로 지도 중심 이동
+      const { y, x } = searchResults[0];
+      map.current.setCenter(new window.kakao.maps.LatLng(y, x));
+    }
+  };
+    // 마커 생성
+  const createMarker = (lat, lng, placeName) => {
+    const marker = new window.kakao.maps.Marker({
+      position: new window.kakao.maps.LatLng(lat, lng),
+      map: map.current,
+    });
+
+    const infowindow = new window.kakao.maps.InfoWindow({
+      content: `<div class='custom-overlay'><h4>${placeName}</h4></div>`,
+    });
+
+    window.kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map.current, marker));
+    window.kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
+
+    return marker;
+  };
+
+  // 현재 위치로 지도 이동
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const { latitude, longitude } = position.coords;
+          const newCenter = new window.kakao.maps.LatLng(latitude, longitude);
+
+          map.current.setCenter(newCenter);
+
+            // 현재 위치 마커 
+          if (currentMarker.current) {
+            currentMarker.current.setPosition(newCenter);
+          } else {
+            currentMarker.current = new window.kakao.maps.Marker({
+              position: newCenter,
+              map: map.current,
             });
+          }
+        },
+        error => {
+          console.error('error:', error);
         }
+      );
+    }
+  };
 
-        // 마커 제거
-        markers.current.forEach(marker => marker.setMap(null));
-        markers.current = [];
+  return (
+    <>
+    <div className='KakaoMap' ref={mapRef}>
+        <button className='current' onClick={getCurrentLocation}>
+            <TbCurrentLocation />
+        </button>
 
-        // 현재 페이지 마커
-        if (searchResults && searchResults.length > 0) {
-            searchResults.forEach(restaurant => {
-                const { y, x } = restaurant;
-
-                const marker = new window.kakao.maps.Marker({
-                    position: new window.kakao.maps.LatLng(y, x),
-                    map: map.current,
-                });
-
-                const content = `
-                    <div class='CustomOverlay'>
-                        <h4>${restaurant.place_name}</h4>
-                    </div>`;
-
-                const infowindow = new window.kakao.maps.InfoWindow({
-                    content: content,
-                });
-
-                kakao.maps.event.addListener(marker, 'mouseover', function () {
-                    infowindow.open(map.current, marker);
-                });
-
-                kakao.maps.event.addListener(marker, 'mouseout', function () {
-                    infowindow.close();
-                });
-
-                markers.current.push(marker);
-            });
-
-            // 검색 결과 지도
-            const { y, x } = searchResults[0];
-            map.current.setCenter(new window.kakao.maps.LatLng(y, x));
-        }
-    }, [searchResults]); 
-
-    const getCurrentLocation = () => {
-        if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
-                    map.current.setCenter(new window.kakao.maps.LatLng(lat, lon));
-
-                    if (currentMarker.current) {
-                        currentMarker.current.setPosition(new window.kakao.maps.LatLng(lat, lon));
-                    } else {
-                        currentMarker.current = new window.kakao.maps.Marker({
-                            position: new window.kakao.maps.LatLng(lat, lon),
-                            map: map.current,
-                        });
-                    }
-                },
-                (error) => {
-                    console.error('Geolocation error:', error);
-                }
-            );
-        } else {
-            console.error('Geolocation is not supported by this browser.');
-        }
-    };
-
-    return (
-        <>
-        <div className='KakaoMap' ref={mapRef}>
-            <button className='current' onClick={getCurrentLocation}>
-                <TbCurrentLocation />
-            </button>
-
-            <div>
-             <div className='signin'><Login/></div>
-        </div>
-        </div>
-       
-        </>
-    );
+        <div>
+         <div className='signin'><Login/></div>
+    </div>
+    </div>
+   
+    </>
+);
 };
 
 export default KakaoMap;

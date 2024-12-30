@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchUser, getAccessToken } from './Kakao_Login_api';
+import { fetchUser, getAccessToken } from '../api/Kakao_Login_api.js';
 import { getToken, removeToken, setToken, } from './LocalStorage';
 import { MdLogout } from "react-icons/md";
 import LoginImg from "./img/kakao_login_medium.png";
@@ -26,7 +26,6 @@ const KakaoLogin = () => {
     }
 
     let code = new URL(window.location.href).searchParams.get("code");
-
     if (code) {
       getAccessToken(code)
         .then((response) => {
