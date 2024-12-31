@@ -4,7 +4,6 @@
 ### `npm start`
 
 <div align= "center">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=eb8b05&height=180&text=Hyung`s%20GitHub&animation=fadeIn&fontColor=ffffff&fontSize=60" />
     </div>
     <div style="text-align: left;"> 
     <h2 style="border-bottom: 1px solid #d8dee4; color: #282d33;">  </h2>  
