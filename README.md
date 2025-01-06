@@ -12,6 +12,7 @@
     • 현재 위치 찾기<br>
     • 음식점 정보 모달창<br>
 </span>
+
 ### `npm install`
 ### `npm start`
 
