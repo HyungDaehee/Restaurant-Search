@@ -3,22 +3,22 @@
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; text-align: center;">
   <div style="width: 30%;">
     <img src="https://github.com/user-attachments/assets/709acd8a-606d-41dd-b4cd-eec5b1a2c000" style="width: 30%; max-height: 30%; object-fit: cover; aspect-ratio: 3 / 4;" />
-    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif;">메인페이지</p>
+    <p style="margin-top: 10px; font-size: 24px; color: #333; font-family: Arial, sans-serif; font-weight: bold;">메인페이지</p>
   </div>
 
   <div style="width: 30%;">
     <img src="https://github.com/user-attachments/assets/5f48205d-5e79-41a2-b7d3-21b0c43df9c6" style="width: 30%; max-height: 30%; object-fit: cover; aspect-ratio: 3 / 4;" />
-    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif;">로그인</p>
+    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif; font-weight: bold;">로그인</p>
   </div>
 
   <div style="width: 30%;">
     <img src="https://github.com/user-attachments/assets/8249d5d1-030e-4919-8360-f1681a66f91a" style="width: 50%; max-height: 30%; object-fit: cover; aspect-ratio: 3 / 4;" />
-    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif;">현재 위치 검색</p>
+    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif; font-weight: bold;">현재 위치 검색</p>
   </div>
 
   <div style="width: 30%;">
     <img src="https://github.com/user-attachments/assets/53dc6576-78d3-41b9-9aa4-2465c5a3dd5e" style="width: 50%; max-height: 30%; object-fit: cover; aspect-ratio: 3 / 4;" />
-    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif;">키워드, 주소로 장소 검색</p>
+    <p style="margin-top: 10px; font-size: 14px; color: #333; font-family: Arial, sans-serif; font-weight: bold;">키워드, 주소로 장소 검색</p>
   </div>
 </div>
 
