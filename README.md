@@ -1,7 +1,8 @@
 
 <div>
-    <h1>Restaurant-Search</h1>
-    <h3>맛집 검색 사이트</h3>
+    <h1>Restaurant-Search
+    <h3>맛집 검색 사이트</h3></h1>
+    
 </div>
 
 
