@@ -1,4 +1,4 @@
-
+ 맛집 검색 사이트
 
 ### `npm install`
 ### `npm start`
