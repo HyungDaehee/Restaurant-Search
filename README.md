@@ -1,5 +1,8 @@
 <h1>Restaurant-Search</h1>
 
+<img src="Restaurant-Search 14.jpg"/>
+
+
 <h2>프로젝트 소개</h2>
 <P>API를 활용하여 키워드, 장소 검색으로 주변 음식점을 찾는 웹 사이트</P>
 
