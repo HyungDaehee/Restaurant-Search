@@ -1,9 +1,6 @@
 <h1>Restaurant-Search</h1>
 
 <img src="https://github.com/user-attachments/assets/4689b693-9e80-4c8c-89ed-2c1e339e9fd7"/>
-<img src="https://github.com/user-attachments/assets/876d84ce-2106-4568-99e5-d6d80a115a95"/>
-<img src="https://github.com/user-attachments/assets/abf32931-b219-4f3c-a994-8701bc3c797d"/>
-<img src="(https://github.com/user-attachments/assets/18b3bd4b-288f-417b-9c5b-e4b8270434c0"/>
 
 
 <h2>프로젝트 소개</h2>
