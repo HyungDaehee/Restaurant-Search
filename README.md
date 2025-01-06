@@ -1,10 +1,10 @@
 <h1>Restaurant-Search</h1>
 
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/709acd8a-606d-41dd-b4cd-eec5b1a2c000" width="25%" />
-  <img src="https://github.com/user-attachments/assets/5f48205d-5e79-41a2-b7d3-21b0c43df9c6" width="25%" />
-  <img src="https://github.com/user-attachments/assets/8249d5d1-030e-4919-8360-f1681a66f91a" width="25%" />
-  <img src="https://github.com/user-attachments/assets/53dc6576-78d3-41b9-9aa4-2465c5a3dd5e" width="25%" />
+<p align="center" style="display: flex; justify-content: center; gap: 10px;">
+  <img src="https://github.com/user-attachments/assets/709acd8a-606d-41dd-b4cd-eec5b1a2c000" width="200px" height="200px" />
+  <img src="https://github.com/user-attachments/assets/5f48205d-5e79-41a2-b7d3-21b0c43df9c6" width="200px" height="200px" />
+  <img src="https://github.com/user-attachments/assets/8249d5d1-030e-4919-8360-f1681a66f91a" width="200px" height="200px" />
+  <img src="https://github.com/user-attachments/assets/53dc6576-78d3-41b9-9aa4-2465c5a3dd5e" width="200px" height="200px" />
 </p>
 
 
