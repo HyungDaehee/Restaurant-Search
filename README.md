@@ -1,4 +1,4 @@
- 맛집 검색 사이트
+<h1>맛집 검색 사이트</h1>
 
 ### `npm install`
 ### `npm start`
