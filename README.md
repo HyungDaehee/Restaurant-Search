@@ -7,8 +7,6 @@
   <img src="https://github.com/user-attachments/assets/53dc6576-78d3-41b9-9aa4-2465c5a3dd5e" width="200px" height="300px" />
 </div>
 
-
-
 <h2>프로젝트 소개</h2>
 <P>API를 활용하여 키워드, 장소 검색으로 주변 음식점을 찾는 웹 사이트</P>
 
