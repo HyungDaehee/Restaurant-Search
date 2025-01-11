@@ -1,11 +1,11 @@
 export const getToken = () => {
-    return localStorage.getItem('kakao_token');
-  };
-  
-  export const setToken = (token) => {
-    localStorage.setItem('kakao_token', token);
-  };
-  
-  export const removeToken = () => {
-    localStorage.removeItem('kakao_token');
-  };
+  return localStorage.getItem("token");
+};
+
+export const setToken = (token) => {
+  localStorage.setItem("token", token);
+};
+
+export const removeToken = () => {
+  localStorage.removeItem("token");
+};

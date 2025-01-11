@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const app = express();
@@ -47,9 +48,9 @@ app.get('/api/search', (req, res) => {
     fetchData();  // 초기 데이터 요청
 });
 
-app.get("/auth/Kakao", (req, res) => {
-  let REST_API_KEY = "6116026697d7c84da46212493aef754b";
-  let REDIRECT_URI = "http://localhost:3000/Login";
+app.get("/auth/Kakao", async(req, res) => {
+  let REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
+  let REDIRECT_URI = process.env.REACT_APP_REDIRECT_URI_LOGIN;
 
   let code = req.query.code;
   console.log("인가 코드:", code);
@@ -58,7 +59,7 @@ app.get("/auth/Kakao", (req, res) => {
     console.log("인가 코드가 없습니다.");
   }
 
-  axios.post("https://kauth.kakao.com/oauth/token", null, {
+  const access_Token = await axios.post("https://kauth.kakao.com/oauth/token", null, {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -69,19 +70,24 @@ app.get("/auth/Kakao", (req, res) => {
       code: code,
     },
   })
-  .then(response => {
-    console.log("카카오 API 응답 데이터:", response.data);
-    res.status(200).json(response.data);
-  })
+  const accessToken = access_Token.data.access_token;
+  console.log("access_Token", access_Token)
 
+  const UserInfo = await axios.get("https://kapi.kakao.com/v2/user/me", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  console.log("사용자 정보", UserInfo.data);
+  const { id, kakao_account } = UserInfo.data;
+  const nickname = kakao_account.profile.nickname;
+
+  const jwtSecret = process.env.JWTSECRETKEY;
+
+  const jwtToken = jwt.sign({id, nickname}, jwtSecret, { expiresIn: "1h" })
+  console.log("JWT Token:", jwtToken);
+  res.json({token :jwtToken });
 });
-
-
-
-
-
-
-
 
 
 
