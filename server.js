@@ -1,7 +1,6 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-const jwt = require('jsonwebtoken');
 const { db, admin } = require('./Firebase/Firebase.js')
 require('dotenv').config();
 
@@ -16,7 +15,7 @@ app.use(express.json());
 
 app.get('/api/search', (req, res) => {
   const { query } = req.query;
-  const KAKAO_API_KEY = process.env.EXPRESS_KAKAO_REST_API_KEY;
+  const KAKAO_API_KEY = '6116026697d7c84da46212493aef754b';
   const MAX_PAGE = 40;
   const itemsPerPage = 15;
   const allResults = [];
@@ -32,7 +31,8 @@ app.get('/api/search', (req, res) => {
         category_group_code: 'FD6',
         size: itemsPerPage,
         page: page,
-      }
+      },
+      timeout:5000
     })
       .then(response => {
         const results = response.data.documents.map(restaurant => ({
@@ -53,8 +53,8 @@ app.get('/api/search', (req, res) => {
 });
 
 app.get("/auth/Kakao", async (req, res) => {
-  let REST_API_KEY = process.env.EXPRESS_KAKAO_REST_API_KEY; 
-  let REDIRECT_URI = process.env.EXPRESS_REDIRECT_URI_LOGIN;
+  let REST_API_KEY = '6116026697d7c84da46212493aef754b'; 
+  let REDIRECT_URI = 'http://localhost:3000/Login';
 
 
   let code = req.query.code;
@@ -85,7 +85,7 @@ app.get("/auth/Kakao", async (req, res) => {
   });
   console.log("사용자 정보", UserInfo.data);
   const { id, kakao_account } = UserInfo.data;
-  const nickname = kakao_account.profile.nickname;
+  const nickname = kakao_account.profile.nickname || "No nickname" ;
 
   // firebase에 저장
   await db.collection("user").doc(String(id)).set({
@@ -96,8 +96,6 @@ app.get("/auth/Kakao", async (req, res) => {
 
   res.json({ token: accessToken });
 });
-
-
 
 
 
