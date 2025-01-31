@@ -88,11 +88,14 @@ app.get("/auth/Kakao", async (req, res) => {
   const nickname = kakao_account.profile.nickname || "No nickname" ;
 
   // firebase에 저장
-  await db.collection("user").doc(String(id)).set({
+  await db.collection("user").doc(String(id)).set(
+    {
     id: id,
     nickname: nickname,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
-  });
+  },
+  { merge : true }
+);
 
   res.json({ token: accessToken });
 });

@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import './App.scss';
-import { Routes, Route } from 'react-router-dom';  // BrowserRouter는 index.js에서 처리하므로 import할 필요 없음
-import KakaoMap from './KakaoMap/KakaoMap';
-import { Search } from './SearchBar/Search';
-import Login from './KakaoLogin/Login';
-import Nav from './Nav/Nav';
+import { Routes, Route } from 'react-router-dom'; 
+import KakaoMap from './components/KakaoMap/KakaoMap.jsx';
+import { Search } from './components/SearchBar/Search';
+import Login from './components/KakaoLogin/Login';
+import { Home } from './components/home/Home.jsx';
+
 
 function App() {
   const [searchResults, setSearchResults] = useState([]);
@@ -29,8 +30,9 @@ function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home/>}></Route>
         <Route
-          path="/"
+          path="/Search"
           element={
             <div className="Main-container">
               <Search
