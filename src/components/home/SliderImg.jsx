@@ -1,14 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Navigation, Pagination } from 'swiper/modules';
-import './Slider.scss'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import './Slider.scss';
+import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 export const SliderImg = () => {
-  const [images, setImages] = useState([])
- 
+  const [images, setImages] = useState([]);
+
+
   useEffect(() => {
     const fetchImages = async () => {
       const API_KEY = 'HUUJhxoA88kcYcgeGlrTLGAvZLdEYJJApvlLE3LcaBsnqEN77oeYAurj';
@@ -19,35 +22,52 @@ export const SliderImg = () => {
       });
 
       const data = await response.json();
-      const FillterImages = data.photos.filter((image) => 
+      const FillterImages = data.photos.filter((image) =>
         image.width > image.height);
       setImages(FillterImages);
-    }
+    };
     fetchImages();
-  }, [])
+  }, []);
+
+  const swiperRef = useRef(null);
+
+  const handleNext = () => {
+    swiperRef.current.swiper.slideNext();
+  };
+
+  const handlePrev = () => {
+    swiperRef.current.swiper.slidePrev();
+  };
+
   return (
-    <div className="carousel">
-      <Swiper
-        modules={[Pagination, Navigation]}
-        spaceBetween={5}
-        slidesPerView={4}
-        pagination={{ clickable: true }}
-        navigation
-        autoplay={{
-          delay:2000,
-          disableOnInteraction: false,
-        }}
-      >
-        {images.map((image) => (
-          <SwiperSlide key={image.id}>
-            <img
-              src={image.src.medium}
-              alt={image.alt}
-              className="Swiper-img"
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+    <div className='carousel-cantainer'>
+      <div className="carousel-box">
+        {/* <div className='Text'>어떤 음식점을 찾고 계신가요?</div> */}
+        <div className="carousel">
+          <Swiper
+            ref={swiperRef}
+            modules={[Autoplay]}
+            spaceBetween={5}
+            slidesPerView={4}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+          >
+            {images.map((image) => (
+              <SwiperSlide key={image.id}>
+                <img
+                  src={image.src.medium}
+                  alt={image.alt}
+                  className="Swiper-img"
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+      <button className="next-btn" onClick={handleNext}><MdOutlineKeyboardArrowRight /></button>
+      <button className="prev-btn" onClick={handlePrev}><MdOutlineKeyboardArrowLeft /></button>
     </div>
   );
 };

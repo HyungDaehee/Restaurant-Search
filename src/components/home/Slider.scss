@@ -1,34 +1,56 @@
-.carousel {
-   
-    margin-top: 5rem;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    overflow: hidden;
+body {
+    background-color: rgb(233, 233, 233);
+}
 
-    .Swiper-img {
-        max-width: 100%;
-        height: 40vh;
-        border-radius: 10px;
-        object-fit: cover;
-        
+.carousel-box {
+    width: 70%;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    margin: auto;
+    margin-top: 1.5rem;
+
+
+    .carousel {
+        margin: 5rem 2rem 0;
+        overflow: hidden;
+
+
+        .Swiper-img {
+            max-width: 100%;
+            height: 40vh;
+            border-radius: 10px;
+            object-fit: cover;
+
+        }
     }
+}
 
-    .swiper-button-next,
-    .swiper-button-prev {
-        color: white;
-        border-radius: 50%;
-        padding: 8px;
-        width: 32px;
-        height: 32px;
+.next-btn,
+.prev-btn {
+    position: absolute;
+    top: 70%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+    font-size: 30px;
+}
 
-    }
+.next-btn {
+    right: 10%;
+}
 
-    .swiper-pagination-bullet {
-        background: #ddd;
-    }
-
-    .swiper-pagination-bullet-active {
-        background: #ff4500;
-    }
-
+.prev-btn {
+    left: 10%;
 }
