@@ -42,7 +42,7 @@ export const SliderImg = () => {
   return (
     <div className='carousel-cantainer'>
       <div className="carousel-box">
-        {/* <div className='Text'>어떤 음식점을 찾고 계신가요?</div> */}
+        <h2 className='carousel-header'>#이런 음식 어때?</h2>
         <div className="carousel">
           <Swiper
             ref={swiperRef}

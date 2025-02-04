@@ -1,36 +1,46 @@
 body {
     background-color: rgb(233, 233, 233);
-}
-
-.carousel-box {
+  }
+  
+  .carousel-box {
     width: 70%;
     background-color: white;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     border-radius: 20px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
     margin: auto;
     margin-top: 1.5rem;
-
-
-    .carousel {
-        margin: 5rem 2rem 0;
-        overflow: hidden;
-
-
-        .Swiper-img {
-            max-width: 100%;
-            height: 40vh;
-            border-radius: 10px;
-            object-fit: cover;
-
-        }
+  
+    .carousel-header {
+      background-color: rgb(240, 240, 240); 
+      padding: 1rem;
+      border-bottom: 1px solid #ccc;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+  
+      h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: red;
+      }
     }
-}
-
-.next-btn,
-.prev-btn {
+  
+    .carousel {
+      margin: 1rem 2rem 0;
+      overflow: hidden;
+  
+      .Swiper-img {
+        max-width: 100%;
+        height: 40vh;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+    }
+  }
+  
+  .next-btn,
+  .prev-btn {
     position: absolute;
     top: 70%;
     background-color: rgba(0, 0, 0, 0.5);
@@ -45,12 +55,13 @@ body {
     cursor: pointer;
     z-index: 10;
     font-size: 30px;
-}
-
-.next-btn {
+  }
+  
+  .next-btn {
     right: 10%;
-}
-
-.prev-btn {
+  }
+  
+  .prev-btn {
     left: 10%;
-}
+  }
+  

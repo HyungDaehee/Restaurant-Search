@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Search.scss';
 import { CiSearch } from "react-icons/ci";
 import { KakaoAPI } from '../api/Kakako_Search_API.js';
@@ -6,6 +6,7 @@ import { Modal } from '../Modal/Modal.jsx';
 import PageNation from '../PageNation/PageNation.jsx';
 import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { useLocation } from 'react-router-dom';
 
 export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageChange }) => {
     const [keyword, setKeyword] = useState('');
@@ -15,14 +16,25 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState('');
 
-    const handleSearch = async () => {
-        if (!keyword.trim()) return;
+    const location = useLocation();
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search);
+        const searchQuery = params.get('query');
+        if (searchQuery) {
+            setKeyword(searchQuery);
+            handleSearch(searchQuery);
+        }
+    }, [location.search]);
+
+    const handleSearch = async (searchQuery) => {
+        if (!searchQuery.trim()) return;
 
         setLoading(true);
         setError(null);
 
         try {
-            const results = await KakaoAPI(keyword);
+            const results = await KakaoAPI(searchQuery);
             console.log('검색 결과:', results);
             setRestaurants(results);
             onSearchResults(results);
@@ -52,8 +64,13 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
                         value={keyword}
                         onChange={(e) => setKeyword(e.target.value)}
                         placeholder='지역, 가게명, 지하철역 검색'
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleSearch(keyword);
+                            }
+                        }}
                     />
-                    <div className='search-i' onClick={handleSearch}>
+                    <div className='search-i' onClick={() => handleSearch(keyword)}>
                         <CiSearch />
                     </div>
                 </div>
@@ -79,7 +96,7 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
                         itemsCountPerPage={itemsCountPerPage}
                         totalItemsCount={restaurants.length}
                         onChange={(page) => {
-                            onPageChange(page); // 부모 컴포넌트에 페이지 변경 알림
+                            onPageChange(page);
                         }}
                     />
                 )}
