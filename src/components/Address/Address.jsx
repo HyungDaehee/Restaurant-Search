@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import './Address.scss'
+import { TbCurrentLocation } from "react-icons/tb";
 
 const Address = () => {
     const [address, setAddress] = useState('');
@@ -46,7 +47,7 @@ const Address = () => {
                 <div className='t3'>맛집 찾기</div>
             </div>
             <div className='cur-btn' onClick={getCurrentLocation}>
-                현재 위치 설정
+            <TbCurrentLocation  className='cur-i'/> 현재 위치 설정
             </div>
         </div>
     );

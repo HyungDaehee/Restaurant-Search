@@ -8,6 +8,7 @@ import './Slider.scss';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
+
 export const SliderImg = () => {
   const [images, setImages] = useState([]);
 

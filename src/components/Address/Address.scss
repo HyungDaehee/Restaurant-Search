@@ -1,33 +1,36 @@
-.current-container{
+.current-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 2.5rem;
+    padding-top: 1.5rem;
 
-    .t1{
+    .t1 {
         color: white;
-        font-size: 28px;
+        font-size: 32px;
     }
 
-    .sec{
+    .sec {
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
 
-        .t2{
-            font-size: 33px;
+        .t2 {
+            font-size: 37px;
         }
-        .t3{
+
+        .t3 {
             font-size: 28px;
+            padding-left: 20px;
+
         }
-       
+
     }
-    
-    .cur-btn{
+
+    .cur-btn {
         width: 10rem;
-        height: 2rem;
+        height: 40px;
         border: 1px;
         border-radius: 20px;
         background-color: orange;
@@ -38,7 +41,14 @@
         color: white;
         font-weight: bold;
         cursor: pointer;
-    
+        border: 0;
+        box-shadow: rgb(0, 0, 0, 0.2);
+        margin-top: 0.5rem;
+
+        .cur-i {
+            font-size: 25px;
+            padding-right: 10px;
+        }
+
     }
 }
-

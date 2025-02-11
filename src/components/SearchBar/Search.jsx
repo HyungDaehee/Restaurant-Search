@@ -7,6 +7,7 @@ import PageNation from '../PageNation/PageNation.jsx';
 import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useLocation } from 'react-router-dom';
+import { IoIosHome } from "react-icons/io";
 
 export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageChange }) => {
     const [keyword, setKeyword] = useState('');
@@ -15,6 +16,7 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
     const [error, setError] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalContent, setModalContent] = useState('');
+
 
     const location = useLocation();
 
@@ -57,24 +59,6 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
 
     return (
         <div className='search-container'>
-            <div className='bar-container'>
-                <div className='search-bar'>
-                    <input
-                        type='text'
-                        value={keyword}
-                        onChange={(e) => setKeyword(e.target.value)}
-                        placeholder='지역, 가게명, 지하철역 검색'
-                        onKeyDown={(e) => {
-                            if (e.key === 'Enter') {
-                                handleSearch(keyword);
-                            }
-                        }}
-                    />
-                    <div className='search-i' onClick={() => handleSearch(keyword)}>
-                        <CiSearch />
-                    </div>
-                </div>
-            </div>
             <div className="sidebar">
                 {restaurants.slice((activePage - 1) * itemsCountPerPage, activePage * itemsCountPerPage).map((restaurant, index) => (
                     <div key={index} className="result-item">

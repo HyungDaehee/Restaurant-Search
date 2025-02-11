@@ -5,6 +5,7 @@ import KakaoMap from './components/KakaoMap/KakaoMap.jsx';
 import { Search } from './components/SearchBar/Search';
 import Login from './components/KakaoLogin/Login';
 import { Home } from './components/home/Home.jsx';
+import NavBar from './components/home/NavBar.jsx';
 
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
         <Route
           path="/Search"
           element={
-            <div className="Main-container">
+            <>
+            <NavBar/>
+            <div className="Search-container">
               <Search
                 onSearchResults={handleSearchResults}
                 activePage={currentPage}
@@ -43,6 +46,7 @@ function App() {
               />
               <KakaoMap searchResults={paginatedResults} />
             </div>
+            </>
           }
         />
         <Route path="/Login" element={<Login />} />

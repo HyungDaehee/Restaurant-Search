@@ -65,9 +65,9 @@ const KakaoLogin = () => {
           <img src={LoginImg} alt="Kakao Login" />
         </div>
       ) : (
-        <button className='Logout' onClick={handleLogout}>
-          <MdLogout />
-        </button>
+        <div className='Logout' onClick={handleLogout}>
+          LogOut
+        </div>
       )}
     </div>
   );
