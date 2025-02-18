@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
 import LogoImage from './LogoImage.jsx';
+import Login from '../KakaoLogin/Login.jsx'
 import './NavBar.scss'
 
 const NavBar = () => {
@@ -32,7 +33,7 @@ const NavBar = () => {
                 />
                 <div className='home-search-i' onClick={handleSubmit}><CiSearch /></div>
                 </div>  
-                <Link to='/Login' className='SignIn'>Login</Link>
+                <div className='SignIn'> <Login /></div>
                 <div className='home-search-i'>  </div>
                    
             </nav>

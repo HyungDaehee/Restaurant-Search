@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './KakaoMap.scss';
 import { TbCurrentLocation } from 'react-icons/tb';
+import { KakaoAPI } from '../api/Kakako_Search_API';
 
 const KakaoMap = ({ searchResults }) => {
   const mapRef = useRef(null);
@@ -18,6 +19,7 @@ const KakaoMap = ({ searchResults }) => {
     }
 
     updateMarkers();
+    
   }, [searchResults]);
 
   const updateMarkers = () => {
@@ -51,38 +53,39 @@ const KakaoMap = ({ searchResults }) => {
     return marker;
   };
 
-    /* 현재 위치 찾기 */
-  // const getCurrentLocation = () => {
-  //   if (navigator.geolocation) {
-  //     navigator.geolocation.getCurrentPosition(
-  //       position => {
-  //         const { latitude, longitude } = position.coords;
-  //         const newCenter = new window.kakao.maps.LatLng(latitude, longitude);
+  //   /* 현재 위치 찾기 */
+  const getCurrentLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        position => {
+          const { latitude, longitude } = position.coords;
+          const newCenter = new window.kakao.maps.LatLng(latitude, longitude);
 
-  //         map.current.setCenter(newCenter);
+          map.current.setCenter(newCenter);
 
-  //         if (currentMarker.current) {
-  //           currentMarker.current.setPosition(newCenter);
-  //         } else {
-  //           currentMarker.current = new window.kakao.maps.Marker({
-  //             position: newCenter,
-  //             map: map.current,
-  //           });
-  //         }
-  //       },
-  //       error => {
-  //         console.error('error:', error);
-  //       }
-  //     );
-  //   }
-  // };
+          if (currentMarker.current) {
+            currentMarker.current.setPosition(newCenter);
+          } else { 
+            currentMarker.current = new window.kakao.maps.Marker({
+              position: newCenter,
+              map: map.current,
+            });
+          }
+        },
+        error => {
+          console.error('error:', error);
+        }
+      );
+    }
+  };
+  
 
   return (
     <>
       <div className='KakaoMap' ref={mapRef}>
-        {/* <button className='current' onClick={getCurrentLocation}>
+        <button className='current' onClick={getCurrentLocation}>
           <TbCurrentLocation />
-        </button> */}
+        </button>
       </div>
 
     </>

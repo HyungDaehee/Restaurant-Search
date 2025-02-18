@@ -1,7 +1,8 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
-const { db, admin } = require('./Firebase/Firebase.js')
+const { default: mongoose } = require('mongoose');
+const User = require('./src/db/User')
 require('dotenv').config();
 
 const app = express();
@@ -87,20 +88,20 @@ app.get("/auth/Kakao", async (req, res) => {
   const { id, kakao_account } = UserInfo.data;
   const nickname = kakao_account.profile.nickname || "No nickname" ;
 
-  // firebase에 저장
-  await db.collection("user").doc(String(id)).set(
-    {
-    id: id,
-    nickname: nickname,
-    createdAt: admin.firestore.FieldValue.serverTimestamp(),
-  },
-  { merge : true }
-);
+  await mongoose
+  .connect( "mongodb+srv://gudeogml:3909@cluster0.dwgul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    { useNewUrlParser: true, useUnifiedTopology: true });
+
+  const user = await User.findOneAndUpdate(
+    { id: String(id) },
+    { name: nickname, createdAt: new Date() },
+    { upsert: true, new: true }
+  );
+
+  console.log("MongoDB에 유저 정보 저장됨:", user); 
 
   res.json({ token: accessToken });
 });
-
-
 
 
 

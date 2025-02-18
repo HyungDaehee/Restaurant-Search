@@ -5,6 +5,8 @@ import { getAccessToken, kakaoLogout } from '../api/Kakao_Login_api.js';
 import { MdLogout } from "react-icons/md";
 import LoginImg from './img/kakao_login_medium.png';
 import './Login.scss';
+import LogoImage from '../home/LogoImage.jsx';
+
 
 const KakaoLogin = () => {
   const navigate = useNavigate();
@@ -59,10 +61,11 @@ const KakaoLogin = () => {
   };
 
   return (
-    <div>
+    <>
+    <div className='Login-contaier'>
       {!isLoggedIn ? (
-        <div onClick={handleLogin}>
-          <img src={LoginImg} alt="Kakao Login" />
+        <div className='login' onClick={handleLogin}>
+          Login
         </div>
       ) : (
         <div className='Logout' onClick={handleLogout}>
@@ -70,6 +73,7 @@ const KakaoLogin = () => {
         </div>
       )}
     </div>
+    </>
   );
 };
 
