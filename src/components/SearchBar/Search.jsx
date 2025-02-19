@@ -7,7 +7,7 @@ import PageNation from '../PageNation/PageNation.jsx';
 import { FaPhone } from "react-icons/fa6";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { useLocation } from 'react-router-dom';
-import { IoIosHome } from "react-icons/io";
+
 
 export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageChange }) => {
     const [keyword, setKeyword] = useState('');

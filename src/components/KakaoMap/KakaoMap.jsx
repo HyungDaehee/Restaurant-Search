@@ -1,12 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './KakaoMap.scss';
 import { TbCurrentLocation } from 'react-icons/tb';
-import { KakaoAPI } from '../api/Kakako_Search_API';
 
 const KakaoMap = ({ searchResults }) => {
   const mapRef = useRef(null);
   const map = useRef(null);
-  const markers = useRef([]);;
+  const markers = useRef([]);
   const currentMarker = useRef(null);
   const [location, setLocation] = useState(null);
 
@@ -19,7 +18,6 @@ const KakaoMap = ({ searchResults }) => {
     }
 
     updateMarkers();
-    
   }, [searchResults]);
 
   const updateMarkers = () => {
@@ -53,43 +51,64 @@ const KakaoMap = ({ searchResults }) => {
     return marker;
   };
 
-  //   /* 현재 위치 찾기 */
-  const getCurrentLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        position => {
-          const { latitude, longitude } = position.coords;
-          const newCenter = new window.kakao.maps.LatLng(latitude, longitude);
+  const CurrentSearch = () => {
+    if (!navigator.geolocation) return;
 
-          map.current.setCenter(newCenter);
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+        const userLocation = new window.kakao.maps.LatLng(latitude, longitude);
+        setLocation(userLocation);
 
-          if (currentMarker.current) {
-            currentMarker.current.setPosition(newCenter);
-          } else { 
-            currentMarker.current = new window.kakao.maps.Marker({
-              position: newCenter,
-              map: map.current,
+        map.current.setCenter(userLocation);
+
+        const ps = new window.kakao.maps.services.Places();
+        const options = {
+          location: userLocation,
+          radius: 5000,
+          sort: window.kakao.maps.services.SortBy.DISTANCE,
+        };
+
+        ps.keywordSearch('맛집', (data, status) => {
+          if (status === window.kakao.maps.services.Status.OK) {
+            markers.current.forEach(marker => marker.setMap(null));
+            markers.current = [];
+            data.forEach(place => {
+              console.log('음식점 이름:', place.place_name);
+              console.log('주소:', place.address_name);
+              console.log('전화번호:', place.phone);
+              console.log('위도:', place.y, '경도:', place.x);
+            });
+
+            data.forEach(place => {
+              const markerPosition = new window.kakao.maps.LatLng(place.y, place.x);
+              const marker = new window.kakao.maps.Marker({
+                position: markerPosition,
+                map: map.current,
+              });
+              markers.current.push(marker);
             });
           }
-        },
-        error => {
-          console.error('error:', error);
-        }
-      );
-    }
+        }, options);
+      },
+      error => {
+        console.error('error:', error);
+      }
+    );
   };
-  
 
   return (
     <>
-      <div className='KakaoMap' ref={mapRef}>
-        <button className='current' onClick={getCurrentLocation}>
-          <TbCurrentLocation />
-        </button>
-      </div>
-
+    <div className='KakaoMap' ref={mapRef}>
+      <button className='current' onClick={CurrentSearch}>
+        <TbCurrentLocation />
+      </button>
+    </div>
     </>
   );
 };
 
 export default KakaoMap;
+
+
+

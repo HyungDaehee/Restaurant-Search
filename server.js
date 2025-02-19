@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const { default: mongoose } = require('mongoose');
-const User = require('./src/db/User')
+const User = require('./src/db/User.js')
 require('dotenv').config();
 
 const app = express();
@@ -75,7 +75,9 @@ app.get("/auth/Kakao", async (req, res) => {
       redirect_uri: REDIRECT_URI,
       code: code,
     },
-  })  // 토큰으로 사용자 정보 가져오기
+  })  
+  
+  // 토큰으로 사용자 정보 가져오기
   const accessToken = access_Token.data.access_token;
   console.log("access_Token", access_Token)
 
