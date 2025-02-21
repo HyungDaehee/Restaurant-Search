@@ -2,11 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getToken, removeToken, setToken } from './LocalStorage.js';
 import { getAccessToken, kakaoLogout } from '../api/Kakao_Login_api.js';
-import { MdLogout } from "react-icons/md";
-import LoginImg from './img/kakao_login_medium.png';
 import './Login.scss';
-import LogoImage from '../home/LogoImage.jsx';
-
 
 const KakaoLogin = () => {
   const navigate = useNavigate();

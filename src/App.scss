@@ -15,16 +15,15 @@
    font-family: Arial, sans-serif;
    line-height: 1.6;
    font-family: "CookiRunFont", sans-serif;
-
-   .Search-container {
-      display: flex;
-      flex-direction: row;
-   }
-
 }
 
 body {
    overflow: hidden;
    
 }
+
+.Search-container {
+      display: flex;
+      flex-direction: row;
+   }
 

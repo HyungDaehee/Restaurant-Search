@@ -29,6 +29,8 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
         }
     }, [location.search]);
 
+    
+
     const handleSearch = async (searchQuery) => {
         if (!searchQuery.trim()) return;
 

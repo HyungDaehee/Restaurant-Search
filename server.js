@@ -45,12 +45,12 @@ app.get('/api/search', (req, res) => {
           res.json(allResults);
         } else {
           page++;
-          fetchData();  // 다음 페이지로 재귀 호출
+          fetchData();
         }
       })
   }
 
-  fetchData();  // 초기 데이터 요청
+  fetchData();
 });
 
 app.get("/auth/Kakao", async (req, res) => {
