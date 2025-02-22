@@ -4,3 +4,23 @@
     background-color: var(--main-color);
     margin-bottom: 2rem;
 }
+
+@media  screen and (min-width: 1200px) {
+        .intro{
+            margin: 0;
+            padding: 0;
+            padding-top: 2rem;
+            margin-bottom: 1rem;
+        }
+}
+
+
+@media screen and (max-width: 768px){
+        .home-container{
+            overflow: hidden;
+        }
+
+            .intro{
+                height: 27vh;
+            }
+}

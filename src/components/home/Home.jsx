@@ -5,12 +5,12 @@ import Address from '../Address/Address.jsx';
 import NavBar from './NavBar.jsx';
 export const Home = () => {
     return (
-        <>
+        <div className='home-container'>
             <NavBar/>
             <div className='intro'>
                 <Address />
             </div>
             <SliderImg />
-        </>
+        </div>
     );
 };

@@ -8,10 +8,9 @@ import './Slider.scss';
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
-
 export const SliderImg = () => {
   const [images, setImages] = useState([]);
-
+  const [slidesPerView, setSlidesPerView] = useState(4);
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -28,6 +27,23 @@ export const SliderImg = () => {
       setImages(FillterImages);
     };
     fetchImages();
+  }, []);
+
+  useEffect(() => {
+    const handleSize = () => {
+      if (window.innerWidth <= 768) {
+        setSlidesPerView(1);
+      } else {
+        setSlidesPerView(4);
+      }
+    };
+    window.addEventListener('resize', handleSize);
+
+    handleSize();
+
+    return () => {
+      window.removeEventListener('resize', handleSize);
+    };
   }, []);
 
   const swiperRef = useRef(null);
@@ -47,12 +63,16 @@ export const SliderImg = () => {
         <div className="carousel">
           <Swiper
             ref={swiperRef}
-            modules={[Autoplay]}
+            modules={[Autoplay, Navigation, Pagination]}
             spaceBetween={5}
-            slidesPerView={4}
+            slidesPerView={slidesPerView} 
             autoplay={{
               delay: 2000,
               disableOnInteraction: false,
+            }}
+            navigation={{
+              nextEl: '.next-btn',
+              prevEl: '.prev-btn',
             }}
           >
             {images.map((image) => (

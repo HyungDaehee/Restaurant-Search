@@ -11,7 +11,7 @@ const LogoImage = () => {
     }
 
   return (
-    <img src={Logo} onClick={LogoClick} className='Logo-Image'/>
+    <img src={Logo} alt='로고' onClick={LogoClick} className='Logo-Image'/>
   )
 }
 

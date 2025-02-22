@@ -17,7 +17,7 @@ const NavBar = () => {
     };
   return (
     <nav className='nav' >
-                <LogoImage  />
+                <LogoImage className='logo'  />
                 <div className='search-wrapper'>
                 <input 
                     className='search' 
@@ -34,7 +34,7 @@ const NavBar = () => {
                 <div className='home-search-i' onClick={handleSubmit}><CiSearch /></div>
                 </div>  
                 <div className='SignIn'> <Login /></div>
-                <div className='home-search-i'>  </div>
+                
                    
             </nav>
   )

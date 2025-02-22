@@ -1,12 +1,17 @@
-.Logo-Image{
-    width: 200px;
-    height: 200px;
+.Logo-Image {
+    max-width: 100%;
+    height: auto;
     cursor: pointer;
     padding-right: 1rem;
-
-    @media screen and (max-width:768px){
-        width: 30%;
-        height: 100px;
-    }
+    background: none;  
+    display: block;
+      
 }
 
+@media screen and (max-width: 768px) {
+    .Logo-Image {
+        max-width: 200px;
+        height: 150px;
+        
+    }
+}

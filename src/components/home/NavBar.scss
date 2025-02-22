@@ -4,17 +4,18 @@
     background-color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     font-size: 2rem;
     color: var(--main-color);
     font-weight: bold;
-    padding-left: 6rem;
+    padding: 0 6rem;
+
 
     .search-wrapper {
         position: relative;
         width: 500px;
         height: 45px;
-        margin-left: 12rem;
-        margin-bottom: 1rem;
+        margin: 0 auto;
 
         .search {
             width: 100%;
@@ -23,14 +24,14 @@
             border: 0;
             border-radius: 25px;
             outline: none;
-            padding-left: 30px;
+            padding: 0 30px;
             background-color: rgb(233, 233, 233);
         }
 
         .home-search-i {
             position: absolute;
-            top: 80%;
-            left: 31rem;
+            top: 50%;
+            right: 10px;
             transform: translateY(-50%);
             color: black;
             cursor: pointer;
@@ -40,35 +41,61 @@
     .SignIn {
         color: var(--main-color);
         text-decoration: none;
-        margin: 15rem;
         font-size: 25px;
+        margin-right: 6rem;
+        transition: color 0.3s;
 
         &:hover {
             color: orange;
         }
     }
 
+    @media screen and (min-width: 1200px) {
+        .search-wrapper{
+            padding-right: 6rem;
+        }
+        .search{
+            padding-right: 5rem !important;
+        }
+
+        .home-search-i{
+            padding-top: 1.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .SignIn{
+            margin-right: 20rem;
+            font-size: 35px;
+        }
+    }
+
+
     @media screen and (max-width: 768px) {
-        padding-left: 2rem;  
+        padding: 0 0.5rem;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
 
         .search-wrapper {
-            width: 30%;  
-            margin-left: 0;  /* 모바일에서는 검색창의 좌측 여백을 없앰 */
-            margin-bottom: 1rem;
-        }
+            width: 60%;
+            right: 2rem;
 
-        .search {
-            font-size: 4px;  /* 검색창 폰트 크기 조정 */
-            padding-left: 20px; 
-        }
+            .search {
+                font-size: 14px;
+            }
 
-        .home-search-i {
-            left: 100%;  /* 아이콘 위치 조정 */
+            .home-search-i {
+                bottom: 0.2rem;
+                left: 16rem;
+            }
         }
 
         .SignIn {
             font-size: 20px;
-            margin: 4rem;  /* 모바일에서는 margin을 0으로 설정 */
+            margin: 1rem 0;
+            padding-right: 0.5rem;
         }
     }
 }
+
+
