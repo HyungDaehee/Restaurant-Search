@@ -53,14 +53,15 @@
     @media screen and (min-width: 1200px) {
         .search-wrapper{
             padding-right: 6rem;
+
+            .search{
+                padding-right: 5rem !important;
+            }
         }
-        .search{
-            padding-right: 5rem !important;
-        }
+       
 
         .home-search-i{
             padding-top: 1.5rem;
-            padding-right: 0.5rem;
         }
 
         .SignIn{
@@ -69,7 +70,33 @@
         }
     }
 
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+        padding: 0 2rem;
+        height: 11vh;
 
+        .search-wrapper {
+            width: 40%;
+            height: 40px;
+            right: 1.5rem;
+            bottom: 7px;
+
+            .search {
+                font-size: 14px;
+            }
+        }
+
+        .home-search-i {
+            right: 15px; 
+            left: 27rem;
+            bottom: 0.2rem;
+        }
+
+        .SignIn {
+            font-size: 22px;
+            padding-left: 5rem;
+        }
+    }
+    
     @media screen and (max-width: 768px) {
         padding: 0 0.5rem;
         flex-direction: column;

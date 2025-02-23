@@ -33,6 +33,8 @@ export const SliderImg = () => {
     const handleSize = () => {
       if (window.innerWidth <= 768) {
         setSlidesPerView(1);
+      } else if (window.innerWidth <= 1024) {
+        setSlidesPerView(2);
       } else {
         setSlidesPerView(4);
       }

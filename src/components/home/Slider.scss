@@ -55,6 +55,31 @@
   left: 10%;
 }
 
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .carousel-box {
+    width: 80%;
+    height: 40vh;
+    margin-top: 1rem;
+
+    .carousel-header {
+      padding: 1rem;
+    }
+
+    .carousel {
+      margin: 1rem 1.5rem 0;
+
+      .Swiper-img {
+        height: 30vh;
+      }
+    }
+  }
+
+  .next-btn,
+  .prev-btn {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .carousel-box {
     width: 90%;
