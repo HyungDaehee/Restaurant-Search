@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom';
 import KakaoMap from './components/KakaoMap/KakaoMap.jsx';
 import { Search } from './components/SearchBar/Search';
 import Login from './components/KakaoLogin/Login';
-import { Home } from './components/home/Home.jsx';
-import NavBar from './components/home/NavBar.jsx';
+import  Home  from './pages/Home.jsx';
+import NavBar from './components/Nav/NavBar.jsx';
 
 
 function App() {

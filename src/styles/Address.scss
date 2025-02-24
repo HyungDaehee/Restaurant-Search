@@ -1,0 +1,152 @@
+.current-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+
+    .t1 {
+        color: white;
+        font-size: 32px;
+    }
+
+    .sec {
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .t2 {
+            font-size: 37px;
+        }
+
+        .t3 {
+            font-size: 28px;
+            padding-left: 20px;
+        }
+    }
+
+    .cur-btn {
+        width: 10rem;
+        height: 40px;
+        border: 1px;
+        border-radius: 20px;
+        background-color: orange;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1rem;
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        border: 0;
+        box-shadow: rgb(0, 0, 0, 0.2);
+        margin-top: 0.5rem;
+
+        .cur-i {
+            font-size: 25px;
+            padding-right: 10px;
+        }
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .current-container {
+        padding-top: 2rem; 
+
+        .t1 {
+            font-size: 40px; 
+        }
+
+        .sec {
+            flex-direction: row;
+            .t2 {
+                font-size: 45px;  
+            }
+
+            .t3 {
+                font-size: 30px;  
+                padding-left: 20px; 
+                margin-top: 0; 
+            }
+        }
+
+        .cur-btn {
+            width: 12rem; 
+            height: 45px; 
+            font-size: 1.2rem;  
+            margin-top: 1.5rem; 
+
+            .cur-i {
+                font-size: 30px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 769px){
+    .current-container {
+        .t1 {
+            padding-left: 2rem;
+            font-size: 40px; 
+        }
+
+        .sec {
+            flex-direction: row; 
+            padding-left: 1rem;
+            .t2 {
+                font-size: 50px; 
+            }
+
+            .t3 {
+                font-size: 30px; 
+                padding-left: 20px; 
+                margin-top: 5px; 
+            }
+        }
+
+        .cur-btn {
+            width: 10rem; 
+            height: 40px; 
+            font-size: 1rem; 
+            margin-top: 1.5rem; 
+            .cur-i {
+                font-size: 25px; 
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .current-container {
+        
+        .t1 {
+            font-size: 26px; 
+        }
+
+        .sec {
+            flex-direction: column; 
+            .t2 {
+                font-size: 40px; 
+            }
+
+            .t3 {
+                font-size: 24px; 
+                padding-left: 0; 
+                margin-top: 5px; 
+            }
+        }
+
+        .cur-btn {
+            width: 8rem; 
+            height: 35px; 
+            font-size: 0.9rem; 
+            margin-top: 1rem; 
+            .cur-i {
+                font-size: 20px; 
+            }
+        }
+    }
+}
+
+

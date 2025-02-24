@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './KakaoMap.scss';
 import { TbCurrentLocation } from 'react-icons/tb';
+import '../../styles/KakaoMap.scss';
 
 const KakaoMap = ({ searchResults }) => {
   const mapRef = useRef(null);

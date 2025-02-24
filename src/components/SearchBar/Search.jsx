@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Search.scss';
 import { CiSearch } from "react-icons/ci";
-import { KakaoAPI } from '../api/Kakako_Search_API.js';
+import { KakaoAPI } from '../../api/Kakako_Search_api.js';
 import { Modal } from '../Modal/Modal.jsx';
 import PageNation from '../PageNation/PageNation.jsx';
 import { FaPhone } from "react-icons/fa6";
