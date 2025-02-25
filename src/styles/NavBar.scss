@@ -1,0 +1,128 @@
+.nav {
+    width: 100%;
+    height: 13vh;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 2rem;
+    color: var(--main-color);
+    font-weight: bold;
+    padding: 0 6rem;
+
+
+    .search-wrapper {
+        position: relative;
+        width: 500px;
+        height: 45px;
+        margin: 0 auto;
+
+        .search {
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            border: 0;
+            border-radius: 25px;
+            outline: none;
+            padding: 0 30px;
+            background-color: rgb(233, 233, 233);
+        }
+
+        .home-search-i {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            color: black;
+            cursor: pointer;
+        }
+    }
+
+    .SignIn {
+        color: var(--main-color);
+        text-decoration: none;
+        font-size: 25px;
+        margin-right: 6rem;
+        transition: color 0.3s;
+
+        &:hover {
+            color: orange;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        .search-wrapper{
+            padding-right: 6rem;
+
+            .search{
+                padding-right: 5rem !important;
+            }
+        }
+       
+
+        .home-search-i{
+            padding-top: 1.5rem;
+        }
+
+        .SignIn{
+            margin-right: 20rem;
+            font-size: 35px;
+        }
+    }
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+        padding: 0 2rem;
+        height: 11vh;
+
+        .search-wrapper {
+            width: 40%;
+            height: 40px;
+            right: 1.5rem;
+            bottom: 7px;
+
+            .search {
+                font-size: 14px;
+            }
+        }
+
+        .home-search-i {
+            right: 15px; 
+            left: 27rem;
+            bottom: 0.2rem;
+        }
+
+        .SignIn {
+            font-size: 22px;
+            padding-left: 5rem;
+        }
+    }
+    
+    @media screen and (max-width: 768px) {
+        padding: 0 0.5rem;
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+
+        .search-wrapper {
+            width: 60%;
+            right: 2rem;
+
+            .search {
+                font-size: 14px;
+            }
+
+            .home-search-i {
+                bottom: 0.2rem;
+                left: 16rem;
+            }
+        }
+
+        .SignIn {
+            font-size: 20px;
+            margin: 1rem 0;
+            padding-right: 0.5rem;
+        }
+    }
+}
+
+

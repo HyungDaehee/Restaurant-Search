@@ -1,0 +1,30 @@
+@font-face {
+   font-family: 'CookiRunFont';
+   src: url('./assets/fonts/Title_Light.otf') format('truetype');
+   font-weight: normal;
+   font-style: normal;
+ }
+
+ :root{
+   --main-color:#fe7000;
+ }
+
+* {
+   margin: 0;
+   padding: 0;
+   font-family: Arial, sans-serif;
+   line-height: 1.6;
+   font-family: "CookiRunFont", sans-serif;
+}
+
+body {
+   overflow: hidden;
+   
+}
+
+.Search-container {
+   display: flex;
+   flex-direction: row;
+}
+
+
