@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
-import useSearchStore from "../store/KakaoAuthStore.js"
+import useSearchStore from '../store/SearchStore.js'; 
+import usePaginationStore from '../store/PaginationStore.js';
 
 const useKakaoMap = () => {
   const mapRef = useRef(null);
   const map = useRef(null);
   const markers = useRef([]);
   const [location, setLocation] = useState(null);
-  const { searchResults } = useSearchStore();
   
+  const { searchResults } = useSearchStore();
+  const { currentPage, itemsPerPage } = usePaginationStore(); 
 
   useEffect(() => {
     if (!map.current) {
@@ -17,19 +19,24 @@ const useKakaoMap = () => {
       });
     }
     updateMarkers();
-  }, [searchResults]);
+  }, [searchResults, currentPage]); 
 
   const updateMarkers = () => {
     markers.current.forEach(marker => marker.setMap(null));
     markers.current = [];
 
-    if (searchResults?.length) {
-      searchResults.forEach(({ y, x, place_name }) => {
+    const paginatedResults = searchResults.slice(
+      (currentPage - 1) * itemsPerPage,
+      currentPage * itemsPerPage
+    );
+
+    if (paginatedResults.length) {
+      paginatedResults.forEach(({ y, x, place_name }) => {
         const marker = createMarker(y, x, place_name);
         markers.current.push(marker);
       });
 
-      const { y, x } = searchResults[0];
+      const { y, x } = paginatedResults[0];
       map.current.setCenter(new window.kakao.maps.LatLng(y, x));
     }
   };

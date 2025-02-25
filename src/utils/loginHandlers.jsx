@@ -6,7 +6,7 @@ export const handleLogin = (Kakao_API_KEY, redirect_uri) => {
   window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${Kakao_API_KEY}&redirect_uri=${redirect_uri}&response_type=code&prompt=login`;
 };
 
-export const handleLogout = (isLoggedIn, setIsLoggedIn, navigate) => {
+export const handleLogout = ( setIsLoggedIn, navigate) => {
   const token = getToken();
   if (token) {
     kakaoLogout(token)

@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import './Search.scss';
 import { KakaoAPI } from '../../api/Kakako_Search_API.js';
-import { Modal } from '../Modal/Modal.jsx';
+import Modal from '../Modal/Modal.jsx';
+import useModalStore from '../../store/ModalStore.js';
 import PageNation from '../PageNation/PageNation.jsx';
-import { FaPhone } from "react-icons/fa6";
-import { FaMapMarkerAlt } from "react-icons/fa";
+import { FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import { useLocation } from 'react-router-dom';
+import useSearchStore from '../../store/SearchStore.js';
+import usePaginationStore from '../../store/PaginationStore.js';
+import '../../styles/Search.scss';
 
-
-export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageChange }) => {
+const Search = () => {
     const [keyword, setKeyword] = useState('');
-    const [restaurants, setRestaurants] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const { searchResults, setSearchResults } = useSearchStore();
+    const { currentPage, setCurrentPage, itemsPerPage } = usePaginationStore();
     const [error, setError] = useState(null);
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [modalContent, setModalContent] = useState('');
-
-
+    const { isOpen, openModal, closeModal, content } = useModalStore();
     const location = useLocation();
 
     useEffect(() => {
@@ -28,40 +26,24 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
         }
     }, [location.search]);
 
-    
-
     const handleSearch = async (searchQuery) => {
         if (!searchQuery.trim()) return;
-
-        setLoading(true);
         setError(null);
 
         try {
             const results = await KakaoAPI(searchQuery);
             console.log('검색 결과:', results);
-            setRestaurants(results);
-            onSearchResults(results);
+            setSearchResults(results);
+            setCurrentPage(1); 
         } catch (err) {
             setError('검색 중 오류가 발생했습니다.');
-        } finally {
-            setLoading(false);
         }
-    };
-
-    const openModal = (url) => {
-        setModalContent(url);
-        setIsModalOpen(true);
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
-        setModalContent('');
     };
 
     return (
         <div className='search-container'>
             <div className="sidebar">
-                {restaurants.slice((activePage - 1) * itemsCountPerPage, activePage * itemsCountPerPage).map((restaurant, index) => (
+                {searchResults.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage).map((restaurant, index) => (
                     <div key={index} className="result-item">
                         <div className="title-category">
                             <h3 className='title'>
@@ -75,23 +57,14 @@ export const Search = ({ onSearchResults, activePage, itemsCountPerPage, onPageC
                         <p className='tel'><FaPhone className='tel-icon' />{restaurant.phone}</p>
                     </div>
                 ))}
-                {restaurants.length > 0 && (
-                    <PageNation
-                        activePage={activePage}
-                        itemsCountPerPage={itemsCountPerPage}
-                        totalItemsCount={restaurants.length}
-                        onChange={(page) => {
-                            onPageChange(page);
-                        }}
-                    />
+                {searchResults.length > 0 && (
+                    <PageNation />
                 )}
             </div>
 
-            <Modal
-                isOpen={isModalOpen}
-                onClose={closeModal}
-                content={modalContent}
-            />
+            <Modal isOpen={isOpen} onClose={closeModal} content={content} />
         </div>
     );
 };
+
+export default Search;

@@ -1,24 +1,31 @@
-// PaginationComponent.jsx
 import React from 'react';
 import Pagination from 'react-js-pagination';
-import './PageNation.scss'
+import usePaginationStore from '../../store/PaginationStore.js';
+import useSearchStore from '../../store/SearchStore.js';
+import '../../styles/PageNation.scss';
 
-const PageNation = ({ activePage, itemsCountPerPage, totalItemsCount, onChange }) => {
+const PageNation = () => {
+    const { currentPage, setCurrentPage, itemsPerPage } = usePaginationStore();
+    const { searchResults } = useSearchStore();
+
     return (
         <Pagination
-        activePage={activePage}
-                itemsCountPerPage={itemsCountPerPage}
-                totalItemsCount={totalItemsCount}
-                pageRangeDisplayed={5}
-                prevPageText={"<"}
-                nextPageText={">"}
-                onChange={onChange}
-                innerClass="pagination-list"  // 페이지 번호 리스트의 클래스
-                itemClass="page"              // 각 페이지 번호의 클래스
-                linkClass="page-link"         // 링크 클래스
-                activeLinkClass="active"      // 활성화된 페이지 링크 클래스
-                prevLinkClass="move"          // 이전 링크 클래스
-                nextLinkClass="move"          // 다음 링크 클래스
+            activePage={currentPage}
+            itemsCountPerPage={itemsPerPage}
+            totalItemsCount={searchResults.length}
+            pageRangeDisplayed={5}
+            prevPageText={"<"}
+            nextPageText={">"}
+            onChange={(page) => {
+                setCurrentPage(page);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            innerClass="pagination-list"
+            itemClass="page"
+            linkClass="page-link"
+            activeLinkClass="active"
+            prevLinkClass="move"
+            nextLinkClass="move"
         />
     );
 };

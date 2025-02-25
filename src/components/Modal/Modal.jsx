@@ -1,15 +1,17 @@
 import React from 'react';
+import useModalStore from '../../store/ModalStore.js';
 import '../../styles/Modal.scss';
 
-export const Modal = ({ isOpen, onClose, content, title = "Details" }) => {
-    if (!isOpen) return null;
+ const Modal = () => {
+    const { isOpen, content, title, closeModal} = useModalStore()
+    if (!isOpen) return null
 
     return (
-        <div className="modal-overlay" onClick={onClose}>
+        <div className="modal-overlay" onClick={closeModal}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                 <button
                     className="close-button"
-                    onClick={onClose}
+                    onClick={closeModal}
                     aria-label="Close Modal"
                 >
                     &times;
@@ -24,3 +26,5 @@ export const Modal = ({ isOpen, onClose, content, title = "Details" }) => {
         </div>
     );
 };
+
+export default Modal;
