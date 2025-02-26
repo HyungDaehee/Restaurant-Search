@@ -2,7 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const { default: mongoose } = require('mongoose');
-const User = require('./src/db/User.js')
+const User = require('./src/db/User.js');
 require('dotenv').config();
 
 const app = express();
@@ -100,11 +100,9 @@ app.get("/auth/Kakao", async (req, res) => {
     { upsert: true, new: true }
   );
 
-  console.log("MongoDB에 유저 정보 저장됨:", user); 
-
+  console.log("MongoDB에 유저 정보 저장됨:", user);
   res.json({ token: accessToken });
 });
-
 
 
 

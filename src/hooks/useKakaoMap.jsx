@@ -1,106 +1,55 @@
-import { useEffect, useRef, useState } from 'react';
-import useSearchStore from '../store/SearchStore.js';
-import usePaginationStore from '../store/PaginationStore.js';
-import useMapStore from '../store/KakaoMapStore.js';
+import { useEffect, useRef } from 'react';
+import useSearchStore from "../store/SearchStore.js";
 
 const useKakaoMap = () => {
   const mapRef = useRef(null);
-  const { map, markers, setMap, setMarkers } = useMapStore();
-  const [location, setLocation] = useState(null);
-
+  const map = useRef(null);
+  const markers = useRef([]);
   const { searchResults } = useSearchStore();
-  const { currentPage, itemsPerPage } = usePaginationStore();
 
   useEffect(() => {
-    if (!map) {
-      const newMap = new window.kakao.maps.Map(mapRef.current, {
-        center: new window.kakao.maps.LatLng(37.654527, 127.060551),
-        level: 4,
-      });
-      setMap(newMap);
+    if (!map.current) {
+      initializeMap();
+    } else {
+      updateMarkers();
     }
-    updateMarkers();
-  }, [searchResults, currentPage, map, setMap]);
+  }, [searchResults]);
+
+  const initializeMap = () => {
+    map.current = new window.kakao.maps.Map(mapRef.current, {
+      center: new window.kakao.maps.LatLng(37.654527, 127.060551),
+      level: 4,
+    });
+  };
 
   const updateMarkers = () => {
-    if (!map) return;
+    markers.current.forEach((marker) => marker.setMap(null));
+    markers.current = [];
 
-    markers.forEach(marker => marker.setMap(null));
-    setMarkers([]);
+    if (searchResults?.length) {
+      const newMarkers = searchResults.map(({ y, x, place_name }) => createMarker(y, x, place_name));
+      markers.current = newMarkers;
 
-    const paginatedResults = searchResults.slice(
-      (currentPage - 1) * itemsPerPage,
-      currentPage * itemsPerPage
-    );
-
-    if (paginatedResults.length) {
-      const newMarkers = paginatedResults.map(({ y, x, place_name }) => {
-        const marker = createMarker(y, x, place_name);
-        return marker;
-      });
-
-      setMarkers(newMarkers);
-
-      const { y, x } = paginatedResults[0];
-      map.setCenter(new window.kakao.maps.LatLng(y, x));
+      const { y, x } = searchResults[0];
+      map.current.setCenter(new window.kakao.maps.LatLng(y, x));
     }
   };
 
   const createMarker = (lat, lng, placeName) => {
-    const marker = new window.kakao.maps.Marker({
-      position: new window.kakao.maps.LatLng(lat, lng),
-      map: map,
-    });
+    const position = new window.kakao.maps.LatLng(lat, lng);
+    const marker = new window.kakao.maps.Marker({ position, map: map.current });
 
     const infowindow = new window.kakao.maps.InfoWindow({
       content: `<div class='custom-overlay'><h4>${placeName}</h4></div>`,
     });
 
-    window.kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map, marker));
+    window.kakao.maps.event.addListener(marker, 'mouseover', () => infowindow.open(map.current, marker));
     window.kakao.maps.event.addListener(marker, 'mouseout', () => infowindow.close());
 
     return marker;
   };
 
-  const searchCurrentLocation = () => {
-    if (!navigator.geolocation) return;
-
-    navigator.geolocation.getCurrentPosition(
-      position => {
-        const { latitude, longitude } = position.coords;
-        const userLocation = new window.kakao.maps.LatLng(latitude, longitude);
-        setLocation(userLocation);
-
-        if (map) {
-          map.setCenter(userLocation);
-
-          const ps = new window.kakao.maps.services.Places();
-          const options = {
-            location: userLocation,
-            radius: 5000,
-            sort: window.kakao.maps.services.SortBy.DISTANCE,
-          };
-
-          ps.keywordSearch('맛집', (data, status) => {
-            if (status === window.kakao.maps.services.Status.OK) {
-              markers.forEach(marker => marker.setMap(null));
-              setMarkers([]);
-
-              data.forEach(({ y, x, place_name }) => {
-                const marker = createMarker(y, x, place_name);
-                markers.push(marker);
-              });
-            }
-          }, options);
-        }
-      },
-      error => {
-        console.error('error:', error);
-      }
-    );
-  };
-
-  return { mapRef, searchCurrentLocation };
+  return { mapRef };
 };
 
 export default useKakaoMap;
