@@ -90,9 +90,9 @@ app.get("/auth/Kakao", async (req, res) => {
   const { id, kakao_account } = UserInfo.data;
   const nickname = kakao_account.profile.nickname || "No nickname";
 
+  const MONGODB_URI = process.env.MONGODB_URI;
   await mongoose
-    .connect("mongodb+srv://gudeogml:3909@cluster0.dwgul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-      { useNewUrlParser: true, useUnifiedTopology: true });
+    .connect(MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true });
 
   const user = await User.findOneAndUpdate(
     { id: String(id) },
