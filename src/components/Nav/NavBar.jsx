@@ -7,37 +7,37 @@ import '../../styles/NavBar.scss'
 
 const NavBar = () => {
     const [keyword, setKeyword] = useState('');
-    const navigate = useNavigate();  
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         if (keyword.trim()) {
             navigate(`/Search?query=${keyword}`);
         }
     };
-  return (
-    <nav className='nav' >
-                <LogoImage className='logo'  />
-                <div className='search-wrapper'>
-                <input 
-                    className='search' 
-                    type='text'  
+    return (
+        <nav className='nav' >
+            <LogoImage className='logo' />
+            <div className='search-wrapper'>
+                <input
+                    className='search'
+                    type='text'
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                     placeholder='지역, 가게명, 지하철역 검색'
                     onKeyDown={(e) => {
                         if (e.key === 'Enter') {
-                            handleSubmit(e); 
+                            handleSubmit(e);
                         }
                     }}
                 />
                 <div className='home-search-i' onClick={handleSubmit}><CiSearch /></div>
-                </div>  
-                <div className='SignIn'> <Login /></div>
-                
-                   
-            </nav>
-  )
+            </div>
+            <div className='SignIn'> <Login /></div>
+
+
+        </nav>
+    )
 }
 
 export default NavBar

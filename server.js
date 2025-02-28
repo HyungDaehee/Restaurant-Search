@@ -9,14 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-  origin: 'http://localhost:3000', 
+  origin: 'http://localhost:3000',
   methods: ['GET', 'POST'],
 }));
 app.use(express.json());
 
 app.get('/api/search', (req, res) => {
   const { query } = req.query;
-  const KAKAO_API_KEY = '6116026697d7c84da46212493aef754b';
+  const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
   const MAX_PAGE = 40;
   const itemsPerPage = 15;
   const allResults = [];
@@ -33,7 +33,7 @@ app.get('/api/search', (req, res) => {
         size: itemsPerPage,
         page: page,
       },
-      timeout:5000
+      timeout: 5000
     })
       .then(response => {
         const results = response.data.documents.map(restaurant => ({
@@ -54,8 +54,8 @@ app.get('/api/search', (req, res) => {
 });
 
 app.get("/auth/Kakao", async (req, res) => {
-  let REST_API_KEY = '6116026697d7c84da46212493aef754b'; 
-  let REDIRECT_URI = 'http://localhost:3000/Login';
+  let REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
+  let REDIRECT_URI = process.env.REACT_APP_KAKAO_LOGIN_REDIRECT_URI;
 
 
   let code = req.query.code;
@@ -75,8 +75,8 @@ app.get("/auth/Kakao", async (req, res) => {
       redirect_uri: REDIRECT_URI,
       code: code,
     },
-  })  
-  
+  })
+
   // 토큰으로 사용자 정보 가져오기
   const accessToken = access_Token.data.access_token;
   console.log("access_Token", access_Token)
@@ -88,11 +88,11 @@ app.get("/auth/Kakao", async (req, res) => {
   });
   console.log("사용자 정보", UserInfo.data);
   const { id, kakao_account } = UserInfo.data;
-  const nickname = kakao_account.profile.nickname || "No nickname" ;
+  const nickname = kakao_account.profile.nickname || "No nickname";
 
   await mongoose
-  .connect( "mongodb+srv://gudeogml:3909@cluster0.dwgul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
-    { useNewUrlParser: true, useUnifiedTopology: true });
+    .connect("mongodb+srv://gudeogml:3909@cluster0.dwgul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+      { useNewUrlParser: true, useUnifiedTopology: true });
 
   const user = await User.findOneAndUpdate(
     { id: String(id) },

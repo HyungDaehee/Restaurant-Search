@@ -2,8 +2,8 @@ import React from 'react';
 import useModalStore from '../../store/ModalStore.js';
 import '../../styles/Modal.scss';
 
- const Modal = () => {
-    const { isOpen, content, title, closeModal} = useModalStore()
+const Modal = () => {
+    const { isOpen, content, title, closeModal } = useModalStore()
     if (!isOpen) return null
 
     return (

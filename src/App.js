@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.scss';
-import { Routes, Route } from 'react-router-dom'; 
+import { Routes, Route } from 'react-router-dom';
 import KakaoMap from './components/KakaoMap/KakaoMap.jsx';
 import Search from './components/SearchBar/Search';
 import Login from './components/KakaoLogin/Login';
@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home/>}></Route>
+        <Route path="/" element={<Home />}></Route>
         <Route
           path="/Search"
           element={

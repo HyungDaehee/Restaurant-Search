@@ -52,26 +52,26 @@
     }
 
     @media screen and (min-width: 1200px) {
-        .search-wrapper{
+        .search-wrapper {
             padding-right: 6rem;
 
-            .search{
+            .search {
                 padding-right: 5rem !important;
             }
         }
-       
 
-        .home-search-i{
+
+        .home-search-i {
             padding-top: 1.5rem;
         }
 
-        .SignIn{
+        .SignIn {
             margin-right: 20rem;
             font-size: 35px;
         }
     }
 
-@media screen and (max-width: 1024px) and (min-width: 768px) {
+    @media screen and (max-width: 1024px) and (min-width: 768px) {
         padding: 0 2rem;
         height: 11vh;
 
@@ -87,7 +87,7 @@
         }
 
         .home-search-i {
-            right: 15px; 
+            right: 15px;
             left: 27rem;
             bottom: 0.2rem;
         }
@@ -97,7 +97,7 @@
             padding-left: 5rem;
         }
     }
-    
+
     @media screen and (max-width: 768px) {
         padding: 0 0.5rem;
         flex-direction: column;
@@ -125,5 +125,3 @@
         }
     }
 }
-
-

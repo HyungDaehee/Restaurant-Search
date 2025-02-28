@@ -9,7 +9,7 @@ const useCurrentLocation = () => {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const { latitude, longitude } = position.coords;
-                    setAddressCoordinates(latitude, longitude); 
+                    setAddressCoordinates(latitude, longitude);
                 },
                 (error) => {
                     console.error("위치 정보 오류:", error);

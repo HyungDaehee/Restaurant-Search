@@ -52,30 +52,31 @@
 
 @media screen and (min-width: 1200px) {
     .current-container {
-        padding-top: 2rem; 
+        padding-top: 2rem;
 
         .t1 {
-            font-size: 40px; 
+            font-size: 40px;
         }
 
         .sec {
             flex-direction: row;
+
             .t2 {
-                font-size: 45px;  
+                font-size: 45px;
             }
 
             .t3 {
-                font-size: 30px;  
-                padding-left: 20px; 
-                margin-top: 0; 
+                font-size: 30px;
+                padding-left: 20px;
+                margin-top: 0;
             }
         }
 
         .cur-btn {
-            width: 12rem; 
-            height: 45px; 
-            font-size: 1.2rem;  
-            margin-top: 1.5rem; 
+            width: 12rem;
+            height: 45px;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
 
             .cur-i {
                 font-size: 30px;
@@ -84,34 +85,36 @@
     }
 }
 
-@media screen and (max-width: 1024px) and (min-width: 769px){
+@media screen and (max-width: 1024px) and (min-width: 769px) {
     .current-container {
         .t1 {
             padding-left: 2rem;
-            font-size: 40px; 
+            font-size: 40px;
         }
 
         .sec {
-            flex-direction: row; 
+            flex-direction: row;
             padding-left: 1rem;
+
             .t2 {
-                font-size: 50px; 
+                font-size: 50px;
             }
 
             .t3 {
-                font-size: 30px; 
-                padding-left: 20px; 
-                margin-top: 5px; 
+                font-size: 30px;
+                padding-left: 20px;
+                margin-top: 5px;
             }
         }
 
         .cur-btn {
-            width: 10rem; 
-            height: 40px; 
-            font-size: 1rem; 
-            margin-top: 1.5rem; 
+            width: 10rem;
+            height: 40px;
+            font-size: 1rem;
+            margin-top: 1.5rem;
+
             .cur-i {
-                font-size: 25px; 
+                font-size: 25px;
             }
         }
     }
@@ -119,34 +122,34 @@
 
 @media screen and (max-width: 768px) {
     .current-container {
-        
+
         .t1 {
-            font-size: 26px; 
+            font-size: 26px;
         }
 
         .sec {
-            flex-direction: column; 
+            flex-direction: column;
+
             .t2 {
-                font-size: 40px; 
+                font-size: 40px;
             }
 
             .t3 {
-                font-size: 24px; 
-                padding-left: 0; 
-                margin-top: 5px; 
+                font-size: 24px;
+                padding-left: 0;
+                margin-top: 5px;
             }
         }
 
         .cur-btn {
-            width: 8rem; 
-            height: 35px; 
-            font-size: 0.9rem; 
-            margin-top: 1rem; 
+            width: 8rem;
+            height: 35px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+
             .cur-i {
-                font-size: 20px; 
+                font-size: 20px;
             }
         }
     }
 }
-
-

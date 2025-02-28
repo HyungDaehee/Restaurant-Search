@@ -7,7 +7,7 @@ const KakaoMap = () => {
 
   return (
     <div className='KakaoMap' ref={mapRef}>
-     
+
     </div>
   );
 };

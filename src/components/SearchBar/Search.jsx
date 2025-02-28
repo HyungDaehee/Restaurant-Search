@@ -34,7 +34,7 @@ const Search = () => {
             const results = await KakaoAPI(searchQuery);
             console.log('검색 결과:', results);
             setSearchResults(results);
-            setCurrentPage(1); 
+            setCurrentPage(1);
         } catch (err) {
             setError('검색 중 오류가 발생했습니다.');
         }
