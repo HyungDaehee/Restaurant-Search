@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getAccessToken = (code) => {
-  return axios.get(`http://localhost:5000/auth/Kakao`, {
+  return axios.get(process.env.REACT_APP_PUBLIC_URL, {
     params: { code: code },
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });
