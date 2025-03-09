@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = process.env.REACT_APP_IMAGES_API_KEY;
+const API_KEY = '6116026697d7c84da46212493aef754b';
 const apiUrl = 'https://api.pexels.com/v1/search';
 
 export const fetchImages = async (query = 'korean restaurant') => {
