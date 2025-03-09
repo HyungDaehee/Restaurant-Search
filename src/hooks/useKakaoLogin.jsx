@@ -4,7 +4,7 @@ import { getAccessToken, kakaoLogout } from '../api/Kakao_Login_api';
 import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/KakaoAuthStore';
 
-const KAKAO_API_KEY = '6116026697d7c84da46212493aef754b';
+const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
 const REDIRECT_URI = 'https://restaurant-search-eight.vercel.app/Login';
 
 const useKakaoLogin = () => {

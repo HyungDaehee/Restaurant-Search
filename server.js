@@ -6,11 +6,7 @@ const User = require('./src/db/User.js');
 require('dotenv').config();
 
 const app = express();
-<<<<<<< HEAD
-const PORT = process.env.PORT || 5000;
-=======
 const PORT = 5000;
->>>>>>> c97f007 (서버 도메인 설정)
 
 app.use(cors({
   origin: 'http://localhost:3000',
@@ -20,11 +16,7 @@ app.use(express.json());
 
 app.get('/api/search', (req, res) => {
   const { query } = req.query;
-<<<<<<< HEAD
-  const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
-=======
   const KAKAO_API_KEY = '6116026697d7c84da46212493aef754b'
->>>>>>> c97f007 (서버 도메인 설정)
   const MAX_PAGE = 40;
   const itemsPerPage = 15;
   const allResults = [];
@@ -62,13 +54,8 @@ app.get('/api/search', (req, res) => {
 });
 
 app.get("/auth/Kakao", async (req, res) => {
-<<<<<<< HEAD
-  let REST_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
-  let REDIRECT_URI = process.env.REACT_APP_KAKAO_LOGIN_REDIRECT_URI;
-=======
   let REST_API_KEY = '6116026697d7c84da46212493aef754b';
   let REDIRECT_URI = 'http://localhost:3000/Login';
->>>>>>> c97f007 (서버 도메인 설정)
 
 
   let code = req.query.code;
@@ -105,11 +92,7 @@ app.get("/auth/Kakao", async (req, res) => {
 
   const MONGODB_URI = process.env.MONGODB_URI;
   await mongoose
-<<<<<<< HEAD
-    .connect(MONGODB_URI,{ useNewUrlParser: true, useUnifiedTopology: true });
-=======
     .connect('mongodb+srv://gudeogml:3909@cluster0.dwgul.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{ useNewUrlParser: true, useUnifiedTopology: true });
->>>>>>> c97f007 (서버 도메인 설정)
 
   const user = await User.findOneAndUpdate(
     { id: String(id) },
