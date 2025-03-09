@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/KakaoAuthStore';
 
 const KAKAO_API_KEY = process.env.REACT_APP_KAKAO_REST_API_KEY;
-const REDIRECT_URI = 'https://restaurant-search-eight.vercel.app/Login';
+const REDIRECT_URI = process.env.REACT_APP_KAKAO_LOGIN_REDIRECT_URI;
 
 const useKakaoLogin = () => {
   const navigate = useNavigate();
