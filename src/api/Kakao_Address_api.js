@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const KaKaoAPI = '6116026697d7c84da46212493aef754b';
+const KaKaoAPI = process.env.REACT_APP_KAKAO_REST_API_KEY;
 const apiUrl = 'https://dapi.kakao.com/v2/local/geo/coord2address.json';
 
 export const AddressCoordinates = async (latitude, longitude) => {
