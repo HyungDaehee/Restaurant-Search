@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_KEY = '6116026697d7c84da46212493aef754b';
+const API_KEY = 'HUUJhxoA88kcYcgeGlrTLGAvZLdEYJJApvlLE3LcaBsnqEN77oeYAurj';
 const apiUrl = 'https://api.pexels.com/v1/search';
 
 export const fetchImages = async (query = 'korean restaurant') => {

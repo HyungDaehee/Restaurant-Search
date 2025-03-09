@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import useAuthStore from '../store/KakaoAuthStore';
 
 const KAKAO_API_KEY = '6116026697d7c84da46212493aef754b';
-const REDIRECT_URI = 'https://restaurant-search-ivory.vercel.app/Login';
+const REDIRECT_URI = 'https://restaurant-search-seven.vercel.app/Login';
 
 const useKakaoLogin = () => {
   const navigate = useNavigate();
