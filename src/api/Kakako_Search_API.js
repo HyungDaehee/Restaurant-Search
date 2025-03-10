@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const KakaoAPI = async (query) => {
     try {
-        const response = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/search`, {
+        const response = await axios.get('https://express-server-olive.vercel.app//api/search', {
             params: { query }
         });
 
