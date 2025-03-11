@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const getAccessToken = (code) => {
-  return axios.get('https://express-server-olive.vercel.app/auth/Kakao', {
+  return axios.get('https://express-server-olive.vercel.app/api/auth/Kakao', {
     params: { code: code },
     headers: { "Content-Type": "application/x-www-form-urlencoded" },
   });

@@ -32,7 +32,7 @@ const Search = () => {
 
         try {
             const results = await KakaoAPI(searchQuery);
-            console.log('검색 결과:', results);
+            // console.log('검색 결과:', results);
             setSearchResults(results);
             setCurrentPage(1);
         } catch (err) {
