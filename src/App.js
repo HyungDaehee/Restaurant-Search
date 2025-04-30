@@ -5,7 +5,8 @@ import KakaoMap from './components/KakaoMap/KakaoMap.jsx';
 import Search from './components/SearchBar/Search';
 import Login from './components/KakaoLogin/Login';
 import Home from './pages/Home.jsx';
-import NavBar from './components/Nav/NavBar.jsx';
+import SearchInput from './components/input/SearchInput.jsx';
+import LogoImage from './components/Logo/LogoImage.jsx';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
           path="/Search"
           element={
             <>
-              <NavBar />
+              <div className='Input'><SearchInput /></div>
               <div className="Search-container">
                 <Search />
                 <KakaoMap />

@@ -7,14 +7,18 @@ const Address = () => {
 
     return (
         <div className='current-container'>
-            <div className='t1'>당신을 위한</div>
-            <div className='sec'>
+            <div className="text">
+                 <div className='t1'>당신을 위한</div>
                 <div className='t2'>{address || '동네 맛집'}</div>
                 <div className='t3'>맛집 찾기</div>
             </div>
+
+            <div className="btn">
             <div className='cur-btn' onClick={getCurrentLocation}>
-                <TbCurrentLocation className='cur-i' /> 현재 위치 설정
+                <TbCurrentLocation className='cur-i' /> 우리 동네 설정
             </div>
+            </div>
+            
         </div>
     );
 };

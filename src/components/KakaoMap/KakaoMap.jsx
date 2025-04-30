@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useKakaoMap from '../../hooks/useKakaoMap';
+import { TbCurrentLocation } from 'react-icons/tb';
 import '../../styles/KakaoMap.scss';
 
 const KakaoMap = () => {
-  const { mapRef } = useKakaoMap();
+  const { map, CurrentSearch } = useKakaoMap();
 
   return (
-    <div className='KakaoMap' ref={mapRef}>
-
+    <div className="KakaoMap" id="map">
+       <button className='current' onClick={CurrentSearch}>
+         <TbCurrentLocation />
+       </button>
     </div>
   );
 };
