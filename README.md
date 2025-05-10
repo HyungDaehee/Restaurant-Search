@@ -74,6 +74,7 @@ cors({
   origin: 'http://localhost:3000',
   credentials: true
 }));
+
 **✅ 결과**<br>
 설정을 완료한 후, 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
 CORS 에러가 해결되었으며, Express에서 CORS 처리 방식에 대해 깊이 이해할 수 있는 좋은 기회가 되었다.
