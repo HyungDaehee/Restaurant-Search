@@ -20,6 +20,7 @@
 
 ### 1. **소셜로그인(카카오)**
 <img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/045d68e8-ea8e-4d65-87f5-5cba697193a9"/>
+
 ### 2. **장소 및 키워드로 음식점 검색**
 
 ### 3. **현재 위치 주변 검색**
