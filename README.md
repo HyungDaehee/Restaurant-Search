@@ -19,7 +19,7 @@
 ##**주요 기능**<br>
 
 ### 1. **소셜로그인(카카오)**
-<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/045d68e8-ea8e-4d65-87f5-5cba697193a9"/>
+<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/0550654b-fd44-4be4-b166-1d151d78049e"/>
 
 ### 2. **장소 및 키워드로 음식점 검색**
 
