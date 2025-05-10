@@ -5,6 +5,8 @@
 
 <img  alt='스크린샷' width="400" src="src/assets/Logo/LogoImage2.png"/>
 
+---
+
 
 **프로젝트 소개**<br>
 사용자가 원하는 음식점을 쉽고 빠르게 찾을 수 있는 음식점 검색 서비스입니다.
