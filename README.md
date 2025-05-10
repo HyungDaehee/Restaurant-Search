@@ -3,7 +3,7 @@
 **One Plate Today**는 혼밥러들의 일상과 변화하는 외식 문화를 
 반영한 음식점 검색 서비스입니다.
 
-<img  alt='스크린샷' width="400" src="src/assets/Logo/LogoImage2.png"/>
+<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/202edb5d-e605-4ada-af52-5a7870041d2c"/>
 
 ---
 
