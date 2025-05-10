@@ -17,7 +17,7 @@
 ---
 
 **개발환경**<br>
-**Front-end : HTML, React, SCSS, Zustand, KakaoAPI<br>**
+**Front-end : HTML  React  SCSS  Zustand  KakaoAPI<br>**
 **Back-end : Express.js, KakaoAPI<br>**
 **Database : MongoDB<br>**
 **저장소 : Git Hub<br>**
