@@ -76,11 +76,11 @@ Database : MongoDB<br>
 그러던 중, 문제는 MongoDB 연결에 있다는 판단이 들어 MongoDB의 에러와 설정 방법을 다시 확인해보았다.
 알고 보니 MongoDB Atlas는 기본적으로 외부 접속을 차단하고 있어, 배포된 서버에서 접근하려면 설정 변경이 필요했다.
 
-**✅ 해결 방법**
+**✅ 해결 방법**<br>
 MongoDB Atlas의 Network Access 설정에서
 허용된 IP 목록(Allow Access From)에 0.0.0.0/0을 추가하여 모든 IP에서의 접속을 허용했다.
 
-**✅ 결과**
+**✅ 결과**<br>
 MongoDB 연결이 정상적으로 이루어지면서
 배포 환경에서도 API 요청이 성공적으로 처리되었고,
 500 Internal Server Error 문제도 해결되었다.
