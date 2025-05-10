@@ -35,16 +35,9 @@
 <img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
 
 
-### 4. **장소 및 키워드로 음식점 검색**
-<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>
-
-
-### 5. **현재 위치 설정**
-<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>
-
-
 ### 6. **음식점 상세 정보(모달)**
-<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>
+<li>검색 결과 음식점 상세 정보 표시</li>
+<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/2996141c-4f32-442e-8b55-7fd7fe7e1952"/>
 
 ---
 
