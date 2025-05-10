@@ -16,7 +16,7 @@
 
 ---
 
-**주요 기능**<br>
+##**주요 기능**<br>
 
 ### 1. **소셜로그인(카카오)**
 
@@ -49,13 +49,13 @@
 
 ---
 
-**트러블 슈팅**<br>
+##**트러블 슈팅**<br>
 ### 1. Cors 에러 : 
 처음 서버 개발을 시작하면서, 클라이언트(React)에서 백엔드(Express)로 API 요청을 보낼 때 CORS(Cross-Origin Resource Sharing) 에러를 경험했다.
 이는 서로 다른 출처(포트 포함) 간의 통신을 브라우저가 보안상 차단하는 정책 때문이다.
 이를 해결하기 위해 Express에 cors 미들웨어를 설치하고 설정하였다.
 
-**✅ 해결 방법**<br>
+## **✅ 해결 방법**<br>
 
 const express = require('express');
 const cors = require('cors');
@@ -68,7 +68,7 @@ cors({
   credentials: true
 }));
 
-**✅ 결과**<br>
+## **✅ 결과**<br>
 설정을 완료한 후, 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
 CORS 에러가 해결되었으며, Express에서 CORS 처리 방식에 대해 깊이 이해할 수 있는 좋은 기회가 되었다.
 
@@ -82,11 +82,11 @@ CORS 에러가 해결되었으며, Express에서 CORS 처리 방식에 대해 �
 그러던 중, 문제는 MongoDB 연결에 있다는 판단이 들어 MongoDB의 에러와 설정 방법을 다시 확인해보았다.
 알고 보니 MongoDB Atlas는 기본적으로 외부 접속을 차단하고 있어, 배포된 서버에서 접근하려면 설정 변경이 필요했다.
 
-**✅ 해결 방법**<br>
+## **✅ 해결 방법**<br>
 MongoDB Atlas의 Network Access 설정에서
 허용된 IP 목록(Allow Access From)에 0.0.0.0/0을 추가하여 모든 IP에서의 접속을 허용했다.
 
-**✅ 결과**<br>
+## **✅ 결과**<br>
 MongoDB 연결이 정상적으로 이루어지면서
 배포 환경에서도 API 요청이 성공적으로 처리되었고,
 500 Internal Server Error 문제도 해결되었다.
@@ -96,7 +96,7 @@ MongoDB 연결이 정상적으로 이루어지면서
 
 ---
 
-**프로젝트**<br>
+## **프로젝트**<br>
 https://restaurant-search-mu.vercel.app
 
 
