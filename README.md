@@ -35,7 +35,7 @@
 
 
 ### 3. **현재 위치 주변 검색**
-<li>현재 위치 버튼 클릭 시 주변 음식점 검색</li>
+<li>현재 위치 버튼 클릭 시 주변 반경 5km 음식점 검색</li>
 <li>페이지네이션에 따른 마커 표시</li>
 <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
 
