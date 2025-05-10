@@ -42,7 +42,7 @@
 
 ### 6. **음식점 상세 정보(모달)**
 <li>검색 결과 음식점 상세 정보 표시</li>
-<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/2996141c-4f32-442e-8b55-7fd7fe7e1952"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/e081485b-1fe4-4f1c-b7f5-c482fae94bb0"/>
 
 ---
 
