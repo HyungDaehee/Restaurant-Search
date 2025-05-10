@@ -20,8 +20,8 @@
 
 ### 1. **소셜로그인(카카오)**
 <li>카카오API를 통한 소셜로그인</li>
-<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>
-<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d041ddb3-ac5c-41dc-bc1a-d85c1a62a0cb"/>
+<img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>, <img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d041ddb3-ac5c-41dc-bc1a-d85c1a62a0cb"/>
+
 
 ### 2. **장소 및 키워드로 음식점 검색**
 <li>장소 및 키워드로 검색</li>
