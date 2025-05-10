@@ -58,15 +58,27 @@ Database : MongoDB<br>
 
 **트러블 슈팅**<br>
 ### 1. Cors 에러 : 
-처음으로 서버를 개발하면서 클라이언트와 연결하는 과정에서 CORS 에러를 경험했다.
-클라이언트 서버에서 백엔드 서버로 API를 요청했을 때 브라우저에 에러가 발생했고,
-이는 서로 다른 출처(포트 포함) 간의 통신을 브라우저가 보안상 차단하는 정책 때문이었다.
-이를 해결하기 위해 Express에 cors 미들웨어를 설치하고,
+처음 서버 개발을 시작하면서, 클라이언트(React)에서 백엔드(Express)로 API 요청을 보낼 때 CORS(Cross-Origin Resource Sharing) 에러를 경험했다.
+이는 서로 다른 출처(포트 포함) 간의 통신을 브라우저가 보안상 차단하는 정책 때문이다.
+이를 해결하기 위해 Express에 cors 미들웨어를 설치하고 설정하였다.
 
-실제 내 코드
+**✅ 해결 방법**<br>
 
-설정 이후에는 CORS 에러 없이 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
-이 과정을 통해 CORS의 개념과 Express에서의 처리 방식에 대해 이해할 수 있었다.
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors()); 
+
+cors({
+  origin: 'http://localhost:3000',
+  credentials: true
+}));
+**✅ 결과**<br>
+설정을 완료한 후, 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
+CORS 에러가 해결되었으며, Express에서 CORS 처리 방식에 대해 깊이 이해할 수 있는 좋은 기회가 되었다.
+
+
 
 ### 2. 500 Internal Server Error (배포 환경에서 발생)
 로컬 환경에서는 모든 기능이 정상적으로 작동했지만,
