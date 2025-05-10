@@ -31,18 +31,18 @@
 <li>장소 및 키워드로 검색</li>
 <li>검색 결과와 지도 분리</li>
 <li>페이지네이션에 따른 마커 표시</li>
-<img  alt='스크린샷' width="500" src="https://github.com/user-attachments/assets/ac5291d4-674e-4a76-a635-d1ccffc66141"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/ac5291d4-674e-4a76-a635-d1ccffc66141"/>
 
 
 ### 3. **현재 위치 주변 검색**
 <li>현재 위치 버튼 클릭 시 주변 음식점 검색</li>
 <li>페이지네이션에 따른 마커 표시</li>
-<img  alt='스크린샷' width="500" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
 
 
 ### 6. **음식점 상세 정보(모달)**
 <li>검색 결과 음식점 상세 정보 표시</li>
-<img  alt='스크린샷' width="500" src="https://github.com/user-attachments/assets/2996141c-4f32-442e-8b55-7fd7fe7e1952"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/2996141c-4f32-442e-8b55-7fd7fe7e1952"/>
 
 ---
 
