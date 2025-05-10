@@ -19,6 +19,7 @@
 ##**주요 기능**<br>
 
 ### 1. **소셜로그인(카카오)**
+카카오API를 통한 소셜로그인
 <img  alt='스크린샷' width="400" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>
 
 ### 2. **장소 및 키워드로 음식점 검색**
