@@ -24,7 +24,8 @@
 <li>인가코드를 전달 받은 서버는 사용자 정보를 받아 엑세스 토큰으로 만들어 클라이언트 서버에게 보냄</li>
 <li>엑세스 토큰을 받은 클라이언트 서버는 session storage에 저장하여 로그인 유지</li>
 <li>로그아웃 버튼을 누르면 session storage에 저장된 엑세스 토큰을 삭제되며 로그아웃</li>
-<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>, <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/d041ddb3-ac5c-41dc-bc1a-d85c1a62a0cb"/>
+<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/d041ddb3-ac5c-41dc-bc1a-d85c1a62a0cb"/>
 
 <br>
 
@@ -75,8 +76,8 @@
 
 ## **✅ 해결 방법**<br>
 
-<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/7f3cc347-88f5-4920-8e46-06a8d5458ad"/>
-<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/0c5cacb6-b5fb-4228-bca2-b55ef61700ef"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/efc01c31-ed3b-4ec2-8984-bcd003e0c4a9"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/0c5cacb6-b5fb-4228-bca2-b55ef61700ef"/>
 
 ## **✅ 결과**<br>
 설정을 완료한 후, 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
