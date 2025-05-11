@@ -6,7 +6,8 @@
 <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/202edb5d-e605-4ada-af52-5a7870041d2c"/>
 
 ---
-
+<br>
+<br>
 
 ## **프로젝트 소개**<br>
 사용자가 원하는 음식점을 쉽고 빠르게 찾을 수 있는 음식점 검색 서비스입니다.
