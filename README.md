@@ -75,8 +75,8 @@
 
 ## **✅ 해결 방법**<br>
 
-<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
-<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
+<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/7f3cc347-88f5-4920-8e46-06a8d5458ad"/>
+<img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/0c5cacb6-b5fb-4228-bca2-b55ef61700ef"/>
 
 ## **✅ 결과**<br>
 설정을 완료한 후, 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
