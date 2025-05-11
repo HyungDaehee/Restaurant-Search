@@ -2,7 +2,7 @@
 **매 끼 뭘 먹을지 고민하는 당신에게!!**<br>
 **One Plate Today**는 변화하는 외식 문화를 
 반영한 음식점 검색 서비스입니다.<br>
-개발기간: 2024.12~2025.03
+개발기간: 2024.12~2025.03(개인 프로젝트)
 
 <img  alt='스크린샷' width="600" src="https://github.com/user-attachments/assets/202edb5d-e605-4ada-af52-5a7870041d2c"/>
 
