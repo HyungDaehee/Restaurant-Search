@@ -76,7 +76,7 @@
 
 ## **✅ 해결 방법**<br>
 
-<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/efc01c31-ed3b-4ec2-8984-bcd003e0c4a9"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/b2eb276e-1bae-4cfc-8a8e-5b05ca030274"/>
 <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/0c5cacb6-b5fb-4228-bca2-b55ef61700ef"/>
 
 ## **✅ 결과**<br>
