@@ -26,6 +26,7 @@
 <li>로그아웃 버튼을 누르면 session storage에 저장된 엑세스 토큰을 삭제되며 로그아웃</li>
 <img  alt='스크린샷' width="300" src="https://github.com/user-attachments/assets/d4e2e408-94ab-464b-bf9e-a614daee6113"/>, <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/d041ddb3-ac5c-41dc-bc1a-d85c1a62a0cb"/>
 
+<br>
 
 ### 2. **장소 및 키워드로 음식점 검색**
 <li>장소 및 키워드로 검색</li>
@@ -33,12 +34,14 @@
 <li>페이지네이션에 따른 마커 표시</li>
 <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/ac5291d4-674e-4a76-a635-d1ccffc66141"/>
 
+<br>
 
 ### 3. **현재 위치 주변 검색**
 <li>현재 위치 버튼 클릭 시 주변 반경 5km 음식점 검색</li>
 <li>페이지네이션에 따른 마커 표시</li>
 <img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
 
+<br>
 
 ### 6. **음식점 상세 정보(모달)**
 <li>검색 결과 음식점 상세 정보 표시</li>
