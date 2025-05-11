@@ -75,16 +75,8 @@
 
 ## **✅ 해결 방법**<br>
 
-const express = require('express');
-const cors = require('cors');
-const app = express();
-
-app.use(cors()); 
-
-cors({
-  origin: 'http://localhost:3000',
-  credentials: true
-}));
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/6a6fc783-5b0c-414d-8a38-b5aeb5b73260"/>
 
 ## **✅ 결과**<br>
 설정을 완료한 후, 프론트엔드와 백엔드 간의 데이터 통신이 원활하게 이루어졌다.
