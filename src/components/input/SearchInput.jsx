@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { CiSearch } from "react-icons/ci";
-import  '../../styles/SearchInput.scss'
+import '../../styles/SearchInput.scss'
 
 const SearchInput = () => {
     const [keyword, setKeyword] = useState('');
@@ -13,23 +13,23 @@ const SearchInput = () => {
             navigate(`/Search?query=${keyword}`);
         }
     };
-  return (
-    <div className='search-wrapper'>
-                <input
-                    className='search'
-                    type='text'
-                    value={keyword}
-                    onChange={(e) => setKeyword(e.target.value)}
-                    placeholder='지역, 가게명, 지하철역 검색'
-                    onKeyDown={(e) => {
-                        if (e.key === 'Enter') {
-                            handleSubmit(e);
-                        }
-                    }}
-                />
-                <div className='home-search-i' onClick={handleSubmit}><CiSearch /></div>
-            </div>
-  )
+    return (
+        <div className='search-wrapper'>
+            <input
+                className='search'
+                type='text'
+                value={keyword}
+                onChange={(e) => setKeyword(e.target.value)}
+                placeholder='지역, 가게명, 지하철역 검색'
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        handleSubmit(e);
+                    }
+                }}
+            />
+            <div className='home-search-i' onClick={handleSubmit}><CiSearch /></div>
+        </div>
+    )
 }
 
 export default SearchInput;

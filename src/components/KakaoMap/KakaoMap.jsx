@@ -8,9 +8,9 @@ const KakaoMap = () => {
 
   return (
     <div className="KakaoMap" id="map">
-       <button className='current' onClick={CurrentSearch}>
-         <TbCurrentLocation />
-       </button>
+      <button className='current' onClick={CurrentSearch}>
+        <TbCurrentLocation />
+      </button>
     </div>
   );
 };

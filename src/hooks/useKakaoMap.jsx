@@ -5,7 +5,7 @@ import useCurResStore from '../store/CurResStors.js';
 
 const useKakaoMap = () => {
   const [map, setMap] = useState(null);
-  const [markers, setMarkers] = useState([]); 
+  const [markers, setMarkers] = useState([]);
   const { searchResults } = useSearchStore();
   const { currentPage, itemsPerPage } = usePageNationStore();
 
@@ -19,7 +19,7 @@ const useKakaoMap = () => {
       console.error("카카오 맵 API 로드되지 않음");
       return;
     }
-  
+
     if (!map) {
       initializeMap();
     } else {
@@ -27,7 +27,7 @@ const useKakaoMap = () => {
     }
   }, [searchResults, CurResults, currentPage, itemsPerPage, map]);
 
-  
+
   const initializeMap = () => {
     const newMap = new window.kakao.maps.Map(document.getElementById("map"), {
       center: new window.kakao.maps.LatLng(37.654527, 127.060551),
@@ -40,23 +40,23 @@ const useKakaoMap = () => {
 
   const updateMarkers = () => {
     markers.forEach((marker) => marker.setMap(null));
-    setMarkers([]); 
-  
+    setMarkers([]);
+
     const TotalResults = CurResults.length > 0 ? CurResults : searchResults;
     const paginated = TotalResults.slice(
       (currentPage - 1) * itemsPerPage,
       currentPage * itemsPerPage
     );
-  
+
     if (paginated.length) {
       const newMarkers = paginated.map(({ y, x, place_name }) =>
         createMarker(y, x, place_name)
       );
       setMarkers(newMarkers);
-  
+
       const { y, x } = paginated[0];
       map.setCenter(new window.kakao.maps.LatLng(y, x));
-    } 
+    }
   };
 
 
@@ -80,28 +80,28 @@ const useKakaoMap = () => {
 
   const CurrentSearch = () => {
     if (!navigator.geolocation) return;
-  
+
     navigator.geolocation.getCurrentPosition(
       position => {
         const { latitude, longitude } = position.coords;
         const userLocation = new window.kakao.maps.LatLng(latitude, longitude);
         setLocation(userLocation);
-  
+
         if (map) {
           map.setCenter(userLocation);
         }
-  
+
         const ps = new window.kakao.maps.services.Places();
         const options = {
           location: userLocation,
           radius: 5000,
           sort: window.kakao.maps.services.SortBy.DISTANCE,
         };
-  
+
         ps.keywordSearch('음식점', (data, status) => {
           if (status === window.kakao.maps.services.Status.OK) {
             console.log(data);
-            setCurResults(data); 
+            setCurResults(data);
           }
         }, options);
       },
@@ -111,10 +111,6 @@ const useKakaoMap = () => {
     );
   };
 
-  const handleUnload = () => {
-    setMarkers([]); 
-    setCurResults([]); 
-  };
 
   return { map, CurrentSearch };
 };

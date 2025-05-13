@@ -1,5 +1,5 @@
 import React from 'react'
-import Logo from '../../assets/Logo/LogoImage3.png'
+import Logo from '../../assets/Logo/LogoImage2.png'
 import { useNavigate } from 'react-router-dom'
 import '../../styles/LogoImage.scss'
 

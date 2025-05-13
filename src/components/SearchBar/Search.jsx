@@ -15,7 +15,7 @@ const Search = () => {
   const { searchResults, setSearchResults } = useSearchStore();
   const { currentPage, setCurrentPage, itemsPerPage } = usePaginationStore();
   const { isOpen, openModal, closeModal, content } = useModalStore();
-  const { CurResults, setCurResults } = useCurResStore(); 
+  const { CurResults, setCurResults } = useCurResStore();
   const [error, setError] = useState(null);
   const location = useLocation();
 
@@ -31,8 +31,8 @@ const Search = () => {
   const handleSearch = async (searchQuery) => {
     if (!searchQuery.trim()) return;
     setError(null);
-    setCurResults([]); 
-  
+    setCurResults([]);
+
     try {
       const results = await KakaoAPI(searchQuery);
       setSearchResults(results);
@@ -40,6 +40,7 @@ const Search = () => {
     } catch (err) {
       setError('검색 중 오류가 발생했습니다.');
     }
+
   };
 
   return (

@@ -17,7 +17,7 @@ const PageNation = () => {
         <Pagination
             activePage={currentPage}
             itemsCountPerPage={itemsPerPage}
-            totalItemsCount={totalItems} 
+            totalItemsCount={totalItems}
             pageRangeDisplayed={5}
             prevPageText={"<"}
             nextPageText={">"}
