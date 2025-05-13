@@ -35,7 +35,7 @@
 <li>검색창에 장소 및 키워드를 입력하여 검색</li>
 <li>검색 결과 창과 지도 부분을 분리하여 시각적으로 보기 쉽게 표현</li>
 <li>검색 결과가 페이지네이션 변경에 따라 지도에 음식점이 표시</li>
-<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/ac5291d4-674e-4a76-a635-d1ccffc66141"/>
+<img  alt='스크린샷' width="700" src="https://github.com/user-attachments/assets/8ac35fb3-4057-4a43-a58e-f5cfe5b4f3a8"/>
 
 <br>
 
