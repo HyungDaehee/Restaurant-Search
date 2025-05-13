@@ -45,13 +45,7 @@
  ┃ ┃ ┣ 📜LogoImage2.png
  ┃ ┃ ┗ 📜LogoImage3.png
  ┃ ┗ 📂Main
- ┃ ┃ ┣ 📜AI에게 대체되지 않는나 브랜딩.jpg
- ┃ ┃ ┣ 📜cafe.jpg
- ┃ ┃ ┣ 📜current.jpg
- ┃ ┃ ┣ 📜Main.jpg
- ┃ ┃ ┣ 📜Main2.jpg
- ┃ ┃ ┣ 📜store.jpg
- ┃ ┃ ┗ 📜수료증 (3)_page-0001.jpg
+ ┃ ┃ ┗ 📜Main2.jpg
  ┣ 📂components
  ┃ ┣ 📂Address
  ┃ ┃ ┗ 📜Address.jsx
@@ -71,8 +65,6 @@
  ┃ ┃ ┗ 📜PageNation.jsx
  ┃ ┗ 📂SearchBar
  ┃ ┃ ┗ 📜Search.jsx
- ┣ 📂db
- ┃ ┗ 📜User.js
  ┣ 📂hooks
  ┃ ┣ 📜useCurrentLocation.jsx
  ┃ ┣ 📜useKakaoLogin.jsx
