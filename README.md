@@ -19,6 +19,96 @@
 ---
 <br>
 
+## **폴더 구조**<br>
+```
+📦src
+ ┣ 📂api
+ ┃ ┣ 📜Images.api.js
+ ┃ ┣ 📜Kakako_Search_API.js
+ ┃ ┣ 📜Kakao_Address_api.js
+ ┃ ┗ 📜Kakao_Login_api.js
+ ┣ 📂assets
+ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📜NotoSansKR-Black.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-Bold.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-ExtraBold.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-ExtraLight.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-Light.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-Medium.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-Regular.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-SemiBold.ttf
+ ┃ ┃ ┣ 📜NotoSansKR-Thin.ttf
+ ┃ ┃ ┣ 📜Title_Light.otf
+ ┃ ┃ ┗ 📜Title_Medium.otf
+ ┃ ┣ 📂Logo
+ ┃ ┃ ┣ 📜LogoImage.png
+ ┃ ┃ ┣ 📜LogoImage2.png
+ ┃ ┃ ┗ 📜LogoImage3.png
+ ┃ ┗ 📂Main
+ ┃ ┃ ┣ 📜AI에게 대체되지 않는나 브랜딩.jpg
+ ┃ ┃ ┣ 📜cafe.jpg
+ ┃ ┃ ┣ 📜current.jpg
+ ┃ ┃ ┣ 📜Main.jpg
+ ┃ ┃ ┣ 📜Main2.jpg
+ ┃ ┃ ┣ 📜store.jpg
+ ┃ ┃ ┗ 📜수료증 (3)_page-0001.jpg
+ ┣ 📂components
+ ┃ ┣ 📂Address
+ ┃ ┃ ┗ 📜Address.jsx
+ ┃ ┣ 📂input
+ ┃ ┃ ┗ 📜SearchInput.jsx
+ ┃ ┣ 📂KakaoLogin
+ ┃ ┃ ┗ 📜Login.jsx
+ ┃ ┣ 📂KakaoMap
+ ┃ ┃ ┗ 📜KakaoMap.jsx
+ ┃ ┣ 📂Logo
+ ┃ ┃ ┗ 📜LogoImage.jsx
+ ┃ ┣ 📂Modal
+ ┃ ┃ ┗ 📜Modal.jsx
+ ┃ ┣ 📂Nav
+ ┃ ┃ ┗ 📜NavBar.jsx
+ ┃ ┣ 📂PageNation
+ ┃ ┃ ┗ 📜PageNation.jsx
+ ┃ ┗ 📂SearchBar
+ ┃ ┃ ┗ 📜Search.jsx
+ ┣ 📂db
+ ┃ ┗ 📜User.js
+ ┣ 📂hooks
+ ┃ ┣ 📜useCurrentLocation.jsx
+ ┃ ┣ 📜useKakaoLogin.jsx
+ ┃ ┗ 📜useKakaoMap.jsx
+ ┣ 📂pages
+ ┃ ┗ 📜Home.jsx
+ ┣ 📂store
+ ┃ ┣ 📜AddressStore.js
+ ┃ ┣ 📜CurResStors.js
+ ┃ ┣ 📜KakaoAuthStore.js
+ ┃ ┣ 📜ModalStore.js
+ ┃ ┣ 📜PaginationStore.js
+ ┃ ┗ 📜SearchStore.js
+ ┣ 📂styles
+ ┃ ┣ 📜Address.scss
+ ┃ ┣ 📜Home.scss
+ ┃ ┣ 📜KakaoMap.scss
+ ┃ ┣ 📜LogoImage.scss
+ ┃ ┣ 📜Modal.scss
+ ┃ ┣ 📜NavBar.scss
+ ┃ ┣ 📜PageNation.scss
+ ┃ ┣ 📜Search.scss
+ ┃ ┗ 📜SearchInput.scss
+ ┣ 📂utils
+ ┃ ┗ 📜SessionStorage.js
+ ┣ 📜App.js
+ ┣ 📜App.scss
+ ┣ 📜App.test.js
+ ┣ 📜index.css
+ ┣ 📜index.js
+ ┗ 📜reportWebVitals.js
+```
+
+---
+
+
 ## **주요 기능**<br>
 
 ### 1. **소셜로그인(카카오/로그아웃)**
