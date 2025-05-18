@@ -191,7 +191,7 @@ MongoDB 연결이 정상적으로 이루어지면서
 
 ---
 
-## **프로젝트**<br>
+## **배포 링크**<br>
 https://restaurant-search-mu.vercel.app
 
 
